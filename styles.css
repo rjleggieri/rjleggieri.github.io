@@ -70,6 +70,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 
 .section { padding: clamp(5.5rem, 9vw, 8rem) max(24px, calc((100vw - var(--max)) / 2)); }
 .section-heading { display: grid; grid-template-columns: .7fr 1.4fr .8fr; gap: 3rem; margin-bottom: 4rem; align-items: end; }
+.work-section .section-heading { grid-template-columns: .7fr 2.2fr; }
 .section-heading .eyebrow { align-self: start; }
 .section-heading h2, .compact-heading h2, .credentials-heading h2, .about-statement h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.65rem, 4.7vw, 4.7rem); font-weight: 400; line-height: .98; letter-spacing: -.05em; }
 .section-heading > p:last-child, .compact-heading > p { margin: 0; color: var(--muted); font-size: .9rem; }
@@ -147,6 +148,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .adl-card-visual img { grid-column: 2; grid-row: 1 / span 4; align-self: center; width: 100%; border: 1px solid rgba(255,255,255,.25); filter: saturate(.8); }
 
 .additional-section { background: var(--paper); }
+.additional-section .compact-heading { grid-template-columns: 1fr; max-width: 900px; }
 .compact-heading { display: grid; grid-template-columns: 1.5fr .7fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
 .nlp-case { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem,6vw,6rem); align-items: center; padding: 3rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .nlp-case h3 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2.2rem,4vw,3.8rem); font-weight: 400; line-height: 1; }
