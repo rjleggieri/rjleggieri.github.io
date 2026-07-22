@@ -88,7 +88,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .feature-bqe { grid-template-columns: 1fr; }
 .feature-bqe .feature-content { max-width: 1100px; }
 .feature-praxicom { grid-template-columns: .9fr 1.1fr; }
-.status-label { display: inline-block; margin: 1.1rem 0 0; padding: .45rem .65rem; border: 1px solid rgba(174,79,0,.35); color: var(--orange); background: rgba(174,79,0,.06); font-size: .63rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .project-note { margin-top: 1.15rem; color: var(--muted); font-size: .7rem; }
 .project-note strong { color: var(--ink); }
 .project-facts, .evidence-grid { display: grid; margin-top: 2rem; border-top: 1px solid var(--line); }

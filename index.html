@@ -127,20 +127,19 @@
         <article class="feature feature-bqe reveal">
           <div class="feature-number">02</div>
           <div class="feature-content">
-            <div class="project-meta"><span>BQE CORE Reporting POC</span><span>Professional project · Gutschick, Little &amp; Weber, P.A.</span></div>
-            <h3>A safe bridge from business data<br class="wide-break" /> to decision support.</h3>
-            <p class="status-label">Synthetic-only · Read-only · No production company data</p>
-            <p class="feature-summary">Designed a reporting connector with safety built into the architecture: GET-only access, minimal OAuth scope, credential-safe local storage, auditable transformations, and human reconciliation before interpretation.</p>
-            <div class="bqe-flow" aria-label="BQE reporting connector architecture">
+            <div class="project-meta"><span>BQE CORE AI Data Connector</span><span>Professional project · Gutschick, Little &amp; Weber, P.A.</span></div>
+            <h3>An AI-ready bridge from business data<br class="wide-break" /> to decision support.</h3>
+            <p class="feature-summary">Built a governed ingestion layer that extracts BQE CORE data into a normalized, auditable warehouse designed for downstream AI analysis. The system prepares operational and financial data for model-driven workflows while preserving traceability to the source.</p>
+            <div class="bqe-flow" aria-label="BQE CORE AI data ingestion architecture">
               <span class="flow-step"><i>01</i>BQE CORE API</span>
-              <span class="flow-step"><i>02</i>Read-only client</span>
-              <span class="flow-step"><i>03</i>SQLite warehouse</span>
-              <span class="flow-step"><i>04</i>Management brief</span>
+              <span class="flow-step"><i>02</i>Read-only ingestion</span>
+              <span class="flow-step"><i>03</i>Validated warehouse</span>
+              <span class="flow-step"><i>04</i>AI-assisted analysis</span>
             </div>
             <div class="evidence-grid evidence-grid-three">
               <div><span>Access</span><strong>OAuth + PKCE; read:core only</strong></div>
-              <div><span>Engineering</span><strong>Pagination, retries, deduplication, high-water marks</strong></div>
-              <div><span>Verification</span><strong>Automated tests and source-system reconciliation plan</strong></div>
+              <div><span>Data engineering</span><strong>Pagination, retries, deduplication, incremental sync</strong></div>
+              <div><span>AI readiness</span><strong>Normalized schemas, auditable transformations, source reconciliation</strong></div>
             </div>
             <div class="project-actions">
               <a class="project-link" href="https://github.com/rjleggieri/bqe-core-reporting-poc" target="_blank" rel="noreferrer">Inspect the public repository <span aria-hidden="true">↗</span></a>
