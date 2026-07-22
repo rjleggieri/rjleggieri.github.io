@@ -297,10 +297,10 @@ def generate():
             styles,
         ),
         project(
-            "Debiasing an NLI Model",
+            "Dataset Cartography for Robust DeBERTa NLI",
             "Graduate NLP project, The University of Texas at Austin",
             [
-                "Used dataset cartography and loss re-weighting to reduce spurious shortcuts in MNLI, improving generalization on adversarial and out-of-domain examples.",
+                "Mapped training dynamics for 392,702 MNLI examples across five epochs and implemented category-weighted loss in a custom Hugging Face Trainer; improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI accuracy.",
             ],
             styles,
         ),

@@ -229,13 +229,12 @@
         </div>
         <article class="nlp-case reveal">
           <div>
-            <div class="project-meta"><span>NLP final project</span><span>Dataset artifacts &amp; robust evaluation</span></div>
-            <h3>Debiasing an NLI model</h3>
-            <p>Implemented dataset cartography, loss re-weighting, and adversarial evaluation to reduce reliance on spurious correlations in the MNLI training data.</p>
-            <p>The results showed better generalization from the re-weighted training when evaluated on adversarial and out-of-domain examples.</p>
-            <a class="project-link" href="https://www.linkedin.com/in/rjleggieri/" target="_blank" rel="noreferrer">See the project listing on LinkedIn <span aria-hidden="true">↗</span></a>
+            <div class="project-meta"><span>Graduate NLP project</span><span>DeBERTa-v3-base &middot; MNLI &middot; HANS</span></div>
+            <h3>Dataset cartography for robust NLI</h3>
+            <p>Logged per-example training dynamics for 392,702 MNLI examples across five epochs, mapping each example by confidence, variability, and correctness. Those categories drove weighted cross-entropy through a custom PyTorch dataset and Hugging Face Trainer.</p>
+            <p>The best configuration down-weighted both easy and hard examples. It improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI validation accuracy; attempts to emphasize hard examples consistently hurt performance, pointing to possible label-quality issues in that region.</p>
           </div>
-          <div class="mini-pipeline" aria-label="NLP project workflow"><span>Map training dynamics</span><i>→</i><span>Re-weight examples</span><i>→</i><span>Stress-test out of domain</span></div>
+          <div class="mini-pipeline" aria-label="NLP project workflow"><span>Map 392K examples</span><i>→</i><span>Re-weight loss by difficulty</span><i>→</i><span>Evaluate on 30K HANS examples</span></div>
         </article>
       </section>
 
