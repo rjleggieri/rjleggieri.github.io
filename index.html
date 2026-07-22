@@ -100,7 +100,7 @@
         <article class="feature feature-prosody reveal">
           <div class="feature-number">01</div>
           <div class="feature-content">
-            <div class="project-meta"><span>Text–Prosody Alignment</span><span>Individual research project</span></div>
+            <div class="project-meta"><span>Text–Prosody Alignment</span><span>Case Studies in Machine Learning · UT Austin</span></div>
             <h3>The “I’m fine” effect.</h3>
             <p class="feature-kicker">When the words say one thing and the voice says another.</p>
             <p class="feature-summary">I designed and evaluated the <strong>Alignment Discrepancy Score (ADS)</strong>, an interpretable measure of the distance between text-derived sentiment and audio-derived prosody in a shared valence–arousal space.</p>
@@ -128,7 +128,7 @@
         <article class="feature feature-bqe reveal">
           <div class="feature-number">02</div>
           <div class="feature-content">
-            <div class="project-meta"><span>BQE CORE Reporting POC</span><span>Independent project · 2026</span></div>
+            <div class="project-meta"><span>BQE CORE Reporting POC</span><span>Professional project · Gutschick, Little &amp; Weber, P.A.</span></div>
             <h3>A safe bridge from business data to decision support.</h3>
             <p class="status-label">Synthetic-only · Read-only · No production company data</p>
             <p class="feature-summary">Designed a reporting connector with safety built into the architecture: GET-only access, minimal OAuth scope, credential-safe local storage, auditable transformations, and human reconciliation before interpretation.</p>
@@ -188,34 +188,54 @@
         </article>
       </section>
 
+      <section class="section adl-section" aria-labelledby="adl-title">
+        <div class="compact-heading reveal">
+          <div><p class="eyebrow">Advances in Deep Learning · UT Austin</p><h2 id="adl-title">Four projects at the edge<br />of modern model building.</h2></div>
+          <p>A research-driven course connecting recent papers to end-to-end implementation. Course repositories remain private; the technical scope is presented here.</p>
+        </div>
+        <div class="adl-grid">
+          <article class="adl-card reveal">
+            <span class="adl-index">01</span>
+            <h3>Memory-efficient fine-tuning</h3>
+            <p>Used mixed precision training, LoRA, 4-bit quantization, and QLoRA to reduce memory requirements while preserving downstream performance.</p>
+            <div class="tags"><span>Mixed precision</span><span>LoRA</span><span>4-bit</span><span>QLoRA</span></div>
+          </article>
+          <article class="adl-card reveal">
+            <span class="adl-index">02</span>
+            <h3>Generative image compression</h3>
+            <p>Combined patch-level autoencoding, Binary Spherical Quantization, and autoregressive modeling to learn compact latent representations with strong reconstruction fidelity.</p>
+            <div class="tags"><span>Autoencoders</span><span>BSQ</span><span>Latent tokens</span><span>Autoregressive</span></div>
+          </article>
+          <article class="adl-card reveal">
+            <span class="adl-index">03</span>
+            <h3>LLM mathematical reasoning</h3>
+            <p>Implemented structured prompting, custom generation strategies, and parameter-efficient adaptation to improve numerical accuracy in smaller language models.</p>
+            <div class="tags"><span>Prompting</span><span>Generation</span><span>PEFT</span><span>Evaluation</span></div>
+          </article>
+          <article class="adl-card adl-card-visual reveal">
+            <span class="adl-index">04</span>
+            <h3>Vision–language QA with synthetic data</h3>
+            <p>Built a SuperTuxKart pipeline that generated nearly one million grounded question–answer pairs for object identity, counting, track recognition, and ego-centric spatial reasoning—without manual annotation.</p>
+            <img src="/assets/supertuxkart-vqa.png" alt="SuperTuxKart race frame with green and red bounding boxes around karts" loading="lazy" />
+          </article>
+        </div>
+      </section>
+
       <section class="section additional-section" aria-labelledby="additional-title">
         <div class="compact-heading reveal">
-          <div><p class="eyebrow">Additional work</p><h2 id="additional-title">More technical range,<br />without the course catalog.</h2></div>
-          <p>Private coursework is summarized without distributing restricted starter code or assignment implementations.</p>
+          <div><p class="eyebrow">Natural Language Processing · UT Austin</p><h2 id="additional-title">Training models to learn<br />the task—not the shortcut.</h2></div>
+          <p>Final project for AI 388 Natural Language Processing, also listed in the Projects section of my LinkedIn profile.</p>
         </div>
-        <div class="additional-grid">
-          <article class="additional-card reveal">
-            <div class="project-meta"><span>Vision–language systems</span><span>2025</span></div>
-            <h3>Grounded visual QA from simulated world state</h3>
-            <p>Built a SuperTuxKart pipeline that generated nearly one million question–answer pairs for object identity, counting, and ego-centric spatial reasoning—without manual annotation.</p>
-            <img src="/assets/supertuxkart-vqa.png" alt="SuperTuxKart race frame with green and red bounding boxes around karts" loading="lazy" />
-            <p class="project-note">Artifact expansion pending; dataset scale is an input characteristic, not a claim of downstream model quality.</p>
-          </article>
-          <article class="additional-card reveal">
-            <div class="project-meta"><span>Robust NLP</span><span>Fall 2024</span></div>
+        <article class="nlp-case reveal">
+          <div>
+            <div class="project-meta"><span>NLP final project</span><span>Dataset artifacts &amp; robust evaluation</span></div>
             <h3>Debiasing an NLI model</h3>
-            <p>Used dataset cartography to identify training examples associated with spurious shortcuts, then evaluated loss re-weighting on adversarial and out-of-domain examples.</p>
-            <div class="mini-pipeline"><span>Map dynamics</span><i>→</i><span>Re-weight</span><i>→</i><span>Stress-test</span></div>
-            <p class="project-note">The re-weighted model performed better in the project’s adversarial evaluation; exact comparisons will be added with the full case study.</p>
-          </article>
-          <article class="additional-card reveal">
-            <div class="project-meta"><span>Advanced deep learning</span><span>Summer 2025</span></div>
-            <h3>Efficient training and compact representations</h3>
-            <p>Implemented mixed precision, LoRA, 4-bit quantization, QLoRA, patch-level autoencoding, Binary Spherical Quantization, and parameter-efficient LLM adaptation.</p>
-            <div class="tags"><span>PyTorch</span><span>LoRA</span><span>QLoRA</span><span>BSQ</span><span>Autoregressive models</span></div>
-            <p class="project-note">Course implementations remain private; this summary describes methods and scope only.</p>
-          </article>
-        </div>
+            <p>Implemented dataset cartography, loss re-weighting, and adversarial evaluation to reduce reliance on spurious correlations in the MNLI training data.</p>
+            <p>The results showed better generalization from the re-weighted training when evaluated on adversarial and out-of-domain examples.</p>
+            <a class="project-link" href="https://www.linkedin.com/in/rjleggieri/" target="_blank" rel="noreferrer">See the project listing on LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="mini-pipeline" aria-label="NLP project workflow"><span>Map training dynamics</span><i>→</i><span>Re-weight examples</span><i>→</i><span>Stress-test out of domain</span></div>
+        </article>
       </section>
 
       <section class="credentials-section" id="experience" aria-labelledby="experience-title">
@@ -235,11 +255,9 @@
           </article>
           <div class="education-list" id="education">
             <article class="education-item reveal">
-              <span>2026</span>
               <div><h3>M.S., Artificial Intelligence</h3><p>The University of Texas at Austin · GPA 4.0</p></div>
             </article>
             <article class="education-item reveal">
-              <span>2024</span>
               <div><h3>B.S., Data Science</h3><p>University of Maryland Global Campus · Summa Cum Laude</p></div>
             </article>
           </div>
