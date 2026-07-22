@@ -263,7 +263,7 @@ def generate():
         *section_rule("Selected AI Projects", styles),
         project(
             "Text-Prosody Alignment: The \"I'm Fine\" Effect",
-            "Case Studies in Machine Learning, The University of Texas at Austin",
+            "Graduate research project, The University of Texas at Austin",
             [
                 "Created the Alignment Discrepancy Score (ADS) to quantify text-sentiment and audio-prosody mismatch in DAIC-WOZ interviews; observed approximately 0.62 AUC for elevated PHQ-8 classification above audio-only baselines.",
                 "Published " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
@@ -288,8 +288,8 @@ def generate():
             styles,
         ),
         project(
-            "Advances in Deep Learning - Four-Project Series",
-            "The University of Texas at Austin",
+            "Advanced Deep Learning Systems",
+            "Graduate deep learning projects, The University of Texas at Austin",
             [
                 "Implemented mixed precision, LoRA, 4-bit quantization, and QLoRA; built patch autoencoding, Binary Spherical Quantization, and autoregressive models for generative image compression.",
                 "Adapted smaller LLMs for mathematical reasoning and generated nearly one million grounded vision-language QA pairs from SuperTuxKart game state.",
@@ -298,7 +298,7 @@ def generate():
         ),
         project(
             "Debiasing an NLI Model",
-            "AI 388 Natural Language Processing Final Project, The University of Texas at Austin",
+            "Graduate NLP project, The University of Texas at Austin",
             [
                 "Used dataset cartography and loss re-weighting to reduce spurious shortcuts in MNLI, improving generalization on adversarial and out-of-domain examples.",
             ],
