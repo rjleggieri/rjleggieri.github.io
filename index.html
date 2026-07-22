@@ -234,7 +234,13 @@
             <p>Logged per-example training dynamics for 392,702 MNLI examples across five epochs, mapping each example by confidence, variability, and correctness. Those categories drove weighted cross-entropy through a custom PyTorch dataset and Hugging Face Trainer.</p>
             <p>The best configuration down-weighted both easy and hard examples. It improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI validation accuracy; attempts to emphasize hard examples consistently hurt performance, pointing to possible label-quality issues in that region.</p>
           </div>
-          <div class="mini-pipeline" aria-label="NLP project workflow"><span>Map 392K examples</span><i>→</i><span>Re-weight loss by difficulty</span><i>→</i><span>Evaluate on 30K HANS examples</span></div>
+          <div class="nlp-visual">
+            <figure class="nlp-data-map">
+              <img src="/assets/mnli-deberta-data-map.png" alt="Data map of 392,702 MNLI training examples plotted by confidence and variability, with easy-to-learn, hard-to-learn, and ambiguous regions labeled" loading="lazy" />
+              <figcaption>Training dynamics across five epochs reveal distinct easy-to-learn, hard-to-learn, and ambiguous regions.</figcaption>
+            </figure>
+            <div class="mini-pipeline" aria-label="NLP project workflow"><span>Map 392K examples</span><i>→</i><span>Re-weight loss by difficulty</span><i>→</i><span>Evaluate on 30K HANS examples</span></div>
+          </div>
         </article>
       </section>
 
