@@ -19,6 +19,7 @@ from reportlab.platypus import (
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "pdf" / "Robert-Leggieri-Resume.pdf"
 PUBLIC_COPY = ROOT / "public" / "docs" / "Robert-Leggieri-Resume.pdf"
+GITHUB_PAGES_COPY = ROOT / "docs" / "Robert-Leggieri-Resume.pdf"
 
 INK = colors.HexColor("#17201F")
 MUTED = colors.HexColor("#555E5A")
@@ -221,6 +222,7 @@ def page_footer(canvas, doc):
 def generate():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC_COPY.parent.mkdir(parents=True, exist_ok=True)
+    GITHUB_PAGES_COPY.parent.mkdir(parents=True, exist_ok=True)
     styles = build_styles()
 
     doc = BaseDocTemplate(
@@ -321,6 +323,7 @@ def generate():
 
     doc.build(story)
     PUBLIC_COPY.write_bytes(OUTPUT.read_bytes())
+    GITHUB_PAGES_COPY.write_bytes(OUTPUT.read_bytes())
 
 
 if __name__ == "__main__":
