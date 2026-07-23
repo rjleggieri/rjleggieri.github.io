@@ -255,7 +255,7 @@ def generate():
         ),
         *section_rule("Professional Summary", styles),
         Paragraph(
-            "Technology leader and applied AI practitioner with over two decades of systems ownership and graduate training in artificial intelligence. Builds secure, auditable systems across natural language processing, speech, computer vision, and data engineering. Combines hands-on model implementation with operational judgment, security awareness, and cross-functional delivery.",
+            "Technology leader and M.S. Artificial Intelligence graduate with over two decades of systems ownership. Builds practical, secure, and auditable AI solutions across natural language processing, speech, computer vision, and data engineering. Combines hands-on model implementation with operational judgment, security awareness, and cross-functional delivery.",
             styles["Summary"],
         ),
         *section_rule("Technical Skills", styles),
@@ -267,7 +267,7 @@ def generate():
             "Text-Prosody Alignment: The \"I'm Fine\" Effect",
             "Graduate research project, The University of Texas at Austin",
             [
-                "Created the Alignment Discrepancy Score (ADS) to quantify text-sentiment and audio-prosody mismatch in DAIC-WOZ interviews; observed approximately 0.62 AUC for elevated PHQ-8 classification above audio-only baselines.",
+                "Created the Alignment Discrepancy Score (ADS) to quantify text-sentiment and audio-prosody mismatch across 189 DAIC-WOZ interviews; sentiment-ADS achieved 0.62 +/- 0.13 AUC under participant-level five-fold cross-validation versus 0.48 text-only and audio-only baselines.",
                 "Published " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
             ],
             styles,
@@ -276,7 +276,7 @@ def generate():
             "BQE CORE AI Data Connector",
             "Professional project, Gutschick, Little & Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-reporting-poc", "GitHub"),
             [
-                "Built a governed read-only ingestion layer that transforms BQE CORE operational and financial data into normalized, auditable structures for downstream AI-assisted analysis.",
+                "Built a governed read-only ingestion layer that transforms historical BQE CORE operational and financial data into normalized, auditable structures for AI-assisted planning as future workloads change.",
                 "Implemented OAuth / PKCE, secure credential storage, pagination, retries, deduplication, incremental sync, SQLite analytics, reconciliation, and raw-response audit preservation.",
             ],
             styles,
@@ -285,7 +285,7 @@ def generate():
             "PraxiCom: Affect-Aware Simulated Patient",
             "UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub") + "  |  " + link("https://youtu.be/jZb3aR0x7cI", "Demo"),
             [
-                "Developed a voice-based simulated patient with nursing-faculty guidance using React, Node.js, Socket.IO, YAML personas, Hume EVI, live transcripts, faculty chat, and structured evaluation; used synthetic patients and no PHI.",
+                "Built student and faculty interfaces, a Socket.IO relay, GuideLLM-informed personas, and Likert-scale evaluation around Hume EVI's low-latency voice-to-voice prototype; identified a modular speech pipeline as the next step for finer prompt control.",
             ],
             styles,
         ),
@@ -300,7 +300,7 @@ def generate():
         ),
         project(
             "Dataset Cartography for Robust DeBERTa NLI",
-            "Graduate NLP project, The University of Texas at Austin",
+            "Graduate NLP coursework, The University of Texas at Austin",
             [
                 "Mapped training dynamics for 392,702 MNLI examples across five epochs and implemented category-weighted loss in a custom Hugging Face Trainer; improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI accuracy.",
             ],
@@ -317,7 +317,7 @@ def generate():
             styles,
         ),
         *section_rule("Education", styles),
-        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA: 4.0  |  Expected August 2026", styles["Education"]),
+        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA: 4.0  |  Graduated August 2026", styles["Education"]),
         Paragraph("<b>University of Maryland Global Campus</b> - B.S., Data Science, Summa Cum Laude  |  May 2024", styles["Education"]),
     ]
 
