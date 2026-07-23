@@ -90,6 +90,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .feature-praxicom { grid-template-columns: .9fr 1.1fr; column-gap: clamp(2rem,5vw,4.5rem); row-gap: 1.5rem; }
 .praxicom-heading { grid-column: 1 / -1; max-width: 1180px; padding-top: .5rem; }
 .praxicom-heading .project-meta { margin-bottom: 1.25rem; }
+.praxicom-heading h3 { text-wrap: balance; }
 .praxicom-heading .feature-kicker { max-width: 820px; margin-bottom: 0; }
 .feature-praxicom .feature-content, .feature-praxicom .media-stack { align-self: start; }
 .project-note { margin-top: 1.15rem; color: var(--muted); font-size: .82rem; line-height: 1.6; }
