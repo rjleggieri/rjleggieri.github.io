@@ -74,7 +74,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .section-heading .eyebrow { align-self: start; }
 .section-heading h2, .compact-heading h2, .credentials-heading h2, .about-statement h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.65rem, 4.7vw, 4.7rem); font-weight: 400; line-height: .98; letter-spacing: -.05em; }
 .section-heading > p:last-child, .compact-heading > p { margin: 0; color: var(--muted); font-size: .9rem; }
-.work-section { background: var(--cream); }
+.work-section { padding-bottom: 0; background: var(--cream); }
 
 .feature { position: relative; display: grid; gap: clamp(2rem, 5vw, 4.5rem); min-height: 480px; padding: clamp(3.5rem, 5.5vw, 5.5rem) 0; border-top: 1px solid var(--line); }
 .feature-number { position: absolute; top: 1.1rem; left: 0; color: var(--orange); font-size: .67rem; font-weight: 850; letter-spacing: .12em; }
@@ -109,10 +109,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .ads-plane { position: absolute; inset: 2.6rem; border-left: 1px solid var(--muted); border-bottom: 1px solid var(--muted); background-image: linear-gradient(rgba(23,32,31,.07) 1px, transparent 1px), linear-gradient(90deg,rgba(23,32,31,.07) 1px,transparent 1px); background-size: 48px 48px; }
 .axis-label { position: absolute; z-index: 2; color: var(--muted); font-size: .54rem; letter-spacing: .1em; text-transform: uppercase; }
 .axis-label-top { left: .55rem; top: 1.3rem; transform: rotate(-90deg); }.axis-label-bottom { right: 1.1rem; bottom: .75rem; }
-.point { position: absolute; z-index: 2; width: 18px; height: 18px; border-radius: 50%; }
+.point { position: absolute; z-index: 2; width: 18px; height: 18px; border-radius: 50%; transform: translate(-50%,-50%); }
 .point i { position: absolute; top: -1.7rem; left: 50%; font-style: normal; font-size: .57rem; font-weight: 850; letter-spacing: .12em; transform: translateX(-50%); }
 .point-text { left: 70%; top: 28%; background: var(--orange); }.point-voice { left: 26%; top: 68%; background: var(--green); }
-.distance-line { position: absolute; left: calc(26% + 9px); top: calc(68% + 9px); width: 55%; height: 1px; background: var(--ink); transform: rotate(-37deg); transform-origin: left; }
+.distance-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.distance-line line { fill: none; stroke: var(--ink); stroke-width: .32; vector-effect: non-scaling-stroke; }
 .distance-label { position: absolute; left: 47%; top: 48%; padding: .2rem .4rem; color: var(--orange); background: var(--paper-deep); font-size: .63rem; font-weight: 900; }
 .ads-visual > p { position: absolute; right: 1.2rem; top: .85rem; margin: 0; color: var(--muted); font-family: var(--serif); font-size: 1rem; line-height: 1.05; text-align: right; }
 
