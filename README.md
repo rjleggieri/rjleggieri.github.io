@@ -1,4 +1,4 @@
-# Robert Leggieri — Applied AI Portfolio
+# Robert Leggieri | Applied AI & Technology Leadership
 
 Personal portfolio for [rjleggieri.github.io](https://rjleggieri.github.io), featuring selected public work and public-safe summaries of graduate projects completed in the M.S. Artificial Intelligence program at The University of Texas at Austin.
 

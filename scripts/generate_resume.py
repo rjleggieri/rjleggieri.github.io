@@ -241,7 +241,7 @@ def generate():
 
     story = [
         Paragraph("Robert Leggieri", styles["Name"]),
-        Paragraph("APPLIED AI  |  MACHINE LEARNING  |  TECHNOLOGY LEADERSHIP", styles["Positioning"]),
+        Paragraph("APPLIED AI  |  ML ENGINEERING  |  TECHNOLOGY LEADERSHIP", styles["Positioning"]),
         Paragraph(
             "Columbia, MD  |  (240) 446-8143  |  "
             + link("mailto:rjleggieri@gmail.com", "rjleggieri@gmail.com")
@@ -255,43 +255,44 @@ def generate():
         ),
         *section_rule("Professional Summary", styles),
         Paragraph(
-            "Technology leader and M.S. Artificial Intelligence graduate with over two decades of systems ownership. Builds practical, secure, and auditable AI solutions across natural language processing, speech, computer vision, and data engineering. Combines hands-on model implementation with operational judgment, security awareness, and cross-functional delivery.",
+            "Technology leader with an M.S. in Artificial Intelligence from UT Austin and over two decades of systems ownership. Builds practical, secure, and auditable AI solutions across natural language processing, speech, computer vision, and data engineering. Combines hands-on model implementation with operational judgment, security awareness, and cross-functional delivery.",
             styles["Summary"],
         ),
         *section_rule("Technical Skills", styles),
         Paragraph("<b>AI / ML:</b> PyTorch, TensorFlow / Keras, scikit-learn, Hugging Face Transformers, CNNs, multimodal learning, model evaluation, LoRA / QLoRA", styles["Skills"]),
-        Paragraph("<b>Data / Engineering:</b> Python, NumPy, Pandas, OpenCV, SQL / SQLite, REST APIs, OAuth 2.0 / PKCE, ETL pipelines, pytest, Git", styles["Skills"]),
+        Paragraph("<b>Data / Engineering:</b> Python, NumPy, Pandas, OpenCV, SQL / SQLite, REST APIs, OAuth 2.0 with PKCE, ETL pipelines, pytest, Git", styles["Skills"]),
         Paragraph("<b>Systems / Automation:</b> PowerShell, Windows Server, network and security operations, workflow automation, vendor and infrastructure strategy", styles["Skills"]),
         *section_rule("Selected AI Projects", styles),
         project(
             "Text-Prosody Alignment: The \"I'm Fine\" Effect",
-            "Graduate research project, The University of Texas at Austin",
+            "Graduate course research project, The University of Texas at Austin",
             [
-                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; depressed sessions showed a tighter ADS distribution with fewer high-ADS outliers, while sentiment-ADS reached 0.62 AUC versus 0.49 audio-only and 0.80 sensitivity at a high-sensitivity threshold.",
+                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; sentiment-ADS reached approximately 0.62 cross-validated AUC, above audio-only at 0.49 but below text-only at approximately 0.70.",
+                "PHQ-elevated sessions showed a tighter ADS distribution with fewer high-ADS outliers; a threshold selected for case detection achieved approximately 0.80 sensitivity.",
                 "Published " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
             ],
             styles,
         ),
         project(
             "BQE CORE AI Data Connector",
-            "Professional project, Gutschick, Little & Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-reporting-poc", "GitHub"),
+            "Professional project, Gutschick, Little & Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"),
             [
-                "Built a governed read-only ingestion layer that transforms historical BQE CORE operational and financial data into normalized, auditable structures for AI-assisted planning as future workloads change.",
-                "Implemented OAuth / PKCE, secure credential storage, pagination, retries, deduplication, incremental sync, SQLite analytics, reconciliation, and raw-response audit preservation.",
+                "Built a governed read-only connector that transforms authorized BQE CORE operational and financial data into normalized, auditable structures for human-reviewed AI-assisted planning.",
+                "Implemented OAuth 2.0 Authorization Code with PKCE, permission-aware incremental sync, secure credential storage, retries, deduplication, SQLite validation, reconciliation controls, and traceable planning exports.",
             ],
             styles,
         ),
         project(
             "PraxiCom: Affect-Aware Simulated Patient",
-            "UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub") + "  |  " + link("https://youtu.be/jZb3aR0x7cI", "Demo"),
+            "Archived 2025 prototype, UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub") + "  |  " + link("https://youtu.be/jZb3aR0x7cI", "Demo"),
             [
                 "Built student and faculty interfaces, a Socket.IO relay, GuideLLM-informed personas, and Likert-scale evaluation around Hume EVI's low-latency voice-to-voice prototype; identified a modular speech pipeline as the next step for finer prompt control.",
             ],
             styles,
         ),
         project(
-            "Advanced Deep Learning Systems",
-            "Graduate deep learning projects, The University of Texas at Austin",
+            "Advances in Deep Learning",
+            "Graduate coursework, The University of Texas at Austin",
             [
                 "Implemented mixed precision, LoRA, 4-bit quantization, and QLoRA; built patch autoencoding, Binary Spherical Quantization, and autoregressive models for generative image compression.",
                 "Adapted smaller LLMs for mathematical reasoning and generated nearly one million grounded vision-language QA pairs from SuperTuxKart game state.",
@@ -300,7 +301,7 @@ def generate():
         ),
         project(
             "Dataset Cartography for Robust DeBERTa NLI",
-            "Graduate NLP coursework, The University of Texas at Austin",
+            "Graduate NLP coursework, The University of Texas at Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Report"),
             [
                 "Mapped training dynamics for 392,702 MNLI examples across five epochs and implemented category-weighted loss in a custom Hugging Face Trainer; improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI accuracy.",
             ],
