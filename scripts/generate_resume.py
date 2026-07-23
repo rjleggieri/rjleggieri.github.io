@@ -267,7 +267,7 @@ def generate():
             "Text-Prosody Alignment: The \"I'm Fine\" Effect",
             "Graduate research project, The University of Texas at Austin",
             [
-                "Created the Alignment Discrepancy Score (ADS) to quantify text-sentiment and audio-prosody mismatch across 189 DAIC-WOZ interviews; sentiment-ADS achieved 0.62 +/- 0.13 AUC under participant-level five-fold cross-validation versus 0.48 text-only and audio-only baselines.",
+                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; depressed sessions showed a tighter ADS distribution with fewer high-ADS outliers, while sentiment-ADS reached 0.62 AUC versus 0.49 audio-only and 0.80 sensitivity at a high-sensitivity threshold.",
                 "Published " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
             ],
             styles,
@@ -317,7 +317,7 @@ def generate():
             styles,
         ),
         *section_rule("Education", styles),
-        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA: 4.0  |  Graduated August 2026", styles["Education"]),
+        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA: 4.0  |  August 2026", styles["Education"]),
         Paragraph("<b>University of Maryland Global Campus</b> - B.S., Data Science, Summa Cum Laude  |  May 2024", styles["Education"]),
     ]
 

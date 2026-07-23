@@ -107,9 +107,10 @@
               <div><span>Data</span><strong>189 DAIC-WOZ clinical interviews</strong></div>
               <div><span>Unit of analysis</span><strong>Utterance-level alignment</strong></div>
               <div><span>Evaluation</span><strong>5-fold participant-level cross-validation</strong></div>
-              <div><span>Observed result</span><strong>0.62 ± 0.13 AUC vs. 0.48 unimodal baselines</strong></div>
+              <div><span>Observed result</span><strong>≈0.62 AUC; above the 0.49 audio-only baseline</strong></div>
             </div>
-            <p class="project-note"><strong>Scope:</strong> Modest, high-variance methodological evidence—not clinical performance. External validation would be required before any clinical interpretation.</p>
+            <p class="feature-summary"><strong>What the result showed:</strong> Median ADS did not sharply separate PHQ groups. Depressed sessions instead showed a tighter distribution with fewer high-ADS outliers, consistent with reduced emotional range. Sensitivity reached ≈0.80 at a high-sensitivity operating point; a balanced threshold yielded ≈0.74 sensitivity and ≈0.51 specificity.</p>
+            <p class="project-note"><strong>Scope:</strong> The text-only model performed better, so ADS is best understood as an interpretable complementary signal. These results are methodological—not clinical—and do not support diagnostic use.</p>
             <div class="follow-on">
               <span>Public follow-on</span>
               <p><a href="https://github.com/rjleggieri/text-prosody-evidence" target="_blank" rel="noreferrer">text-prosody-evidence ↗</a> turns lessons from the research into a dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, and auditable evidence. It is a stricter engineering direction—not a reproduction or validation of the original findings.</p>
@@ -162,7 +163,7 @@
             </a>
           </div>
           <div class="feature-content">
-            <div class="project-meta"><span>PraxiCom</span><span>NURSING-AI Challenge · Spring 2025</span></div>
+            <div class="project-meta"><span>PraxiCom</span><span>UT Austin NURSING-AI Challenge · Spring 2025</span></div>
             <h3>Practice for conversations that resist a checklist.</h3>
             <p class="feature-kicker">A voice-based simulated patient for complex clinical communication.</p>
             <p>Individual prototype developed with guidance from UT Austin nursing faculty. I built the student and faculty interfaces, real-time session relay, structured patient personas, and evaluation workflow; Hume EVI supplied the low-latency, natural voice-to-voice layer used for rapid prototyping.</p>
@@ -261,7 +262,7 @@
         </div>
         <article class="nlp-case reveal">
           <div>
-            <div class="project-meta"><span>Course project · Reimplementation study</span><span>DeBERTa-v3-base &middot; MNLI &middot; HANS</span></div>
+            <div class="project-meta"><span>NLP Final Project</span><span>DeBERTa-v3-base &middot; MNLI &middot; HANS</span></div>
             <h3>Dataset cartography for robust NLI</h3>
             <p>Applied established dataset-cartography methods to 392,702 MNLI examples across five epochs, mapping each example by confidence, variability, and correctness. Those categories drove weighted cross-entropy through a custom PyTorch dataset and Hugging Face Trainer.</p>
             <p>The best configuration down-weighted both easy and hard examples. It improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI validation accuracy; attempts to emphasize hard examples consistently hurt performance, pointing to possible label-quality issues in that region.</p>
