@@ -133,6 +133,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .feature-screenshot { width: 100%; border: 1px solid var(--line); filter: saturate(.85) contrast(1.02); }
 .interface-evidence { margin: 0; }
 .interface-evidence img { width: 100%; border: 1px solid var(--line); background: white; filter: saturate(.85) contrast(1.02); }
+.feature-praxicom .interface-evidence:last-child img { aspect-ratio: 2 / 1; object-fit: cover; object-position: top; }
 .interface-evidence figcaption { margin-top: .45rem; color: var(--muted); font-size: .72rem; }
 .architecture { display: grid; grid-template-columns: 1.25fr auto 1fr auto .7fr; gap: .7rem; align-items: center; margin: 1.8rem 0; padding: 1rem; border: 1px solid var(--line); background: var(--paper); }
 .architecture-sources { display: grid; gap: .45rem; }
@@ -207,6 +208,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
   .hero { grid-template-columns: 1fr .75fr; }
   .section-heading { grid-template-columns: .6fr 1.4fr; }.section-heading > p:last-child { grid-column: 2; }
   .feature-prosody, .feature-praxicom { grid-template-columns: 1fr; }.feature-praxicom .media-stack { order: 2; }.feature-praxicom .feature-content { order: 1; }
+  .feature-praxicom .interface-evidence:last-child img { aspect-ratio: auto; object-fit: fill; }
   .credentials-section, .about-section { grid-template-columns: 1fr; }
   .credentials-heading > p:last-child { max-width: 680px; }
   .architecture { grid-template-columns: 1.25fr auto 1fr auto .7fr; }
