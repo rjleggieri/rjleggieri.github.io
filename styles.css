@@ -161,7 +161,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .nlp-data-map figcaption { margin-top: .7rem; color: var(--muted); font-size: .75rem; line-height: 1.5; }
 .mini-pipeline { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin: 2.3rem 0; }
 .mini-pipeline span { padding: .55rem .65rem; color: white; background: var(--green); font-size: .61rem; font-weight: 750; }.mini-pipeline i { color: var(--orange); font-style: normal; }
-.foundations { margin-top: 3.25rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.foundations { margin-top: 3.25rem; padding: clamp(1.4rem,3vw,2rem); border: 1px solid var(--line); background: var(--paper-deep); }
 .foundations-heading { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; align-items: end; margin-bottom: 1.4rem; }
 .foundations-heading p { margin: 0; }
 .foundations-heading > p:last-child { max-width: 570px; color: var(--muted); font-size: .82rem; }
@@ -235,7 +235,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 @media (max-width: 430px) {
   .evidence-grid, .evidence-grid-three, .project-facts { grid-template-columns: 1fr; }.evidence-grid div, .project-facts div, .evidence-grid div:nth-child(odd), .project-facts div:nth-child(odd) { padding-left: 0; border-left: 0; }
   .mini-pipeline { align-items: stretch; flex-direction: column; }.mini-pipeline i { transform: rotate(90deg); text-align: center; }
-  .foundations { margin-top: 2.5rem; }.foundations-heading, .foundations-grid { grid-template-columns: 1fr; }.foundations-heading { gap: .55rem; }.foundation-card { min-height: 0; }
+  .foundations { margin-top: 2.5rem; padding: 1rem; }.foundations-heading, .foundations-grid { grid-template-columns: 1fr; }.foundations-heading { gap: .55rem; }.foundation-card { min-height: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
