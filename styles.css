@@ -87,7 +87,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .feature-prosody { grid-template-columns: 1.08fr .92fr; }
 .feature-bqe { grid-template-columns: 1fr; }
 .feature-bqe .feature-content { max-width: 1100px; }
-.feature-praxicom { grid-template-columns: .9fr 1.1fr; }
+.feature-praxicom { grid-template-columns: .9fr 1.1fr; column-gap: clamp(2rem,5vw,4.5rem); row-gap: 1.5rem; }
+.praxicom-heading { grid-column: 1 / -1; max-width: 1180px; padding-top: .5rem; }
+.praxicom-heading .project-meta { margin-bottom: 1.25rem; }
+.praxicom-heading .feature-kicker { max-width: 820px; margin-bottom: 0; }
+.feature-praxicom .feature-content, .feature-praxicom .media-stack { align-self: start; }
 .project-note { margin-top: 1.15rem; color: var(--muted); font-size: .82rem; line-height: 1.6; }
 .project-note strong { color: var(--ink); }
 .follow-on { display: grid; grid-template-columns: 105px 1fr; gap: 1rem; margin-top: 1.35rem; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
