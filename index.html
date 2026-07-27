@@ -275,8 +275,8 @@
         <article class="planner-case reveal">
           <div class="planner-copy">
             <p class="eyebrow">Graduate coursework &middot; Deep Learning &middot; UT Austin</p>
-            <h2 id="planner-title">Three approaches to waypoint planning.</h2>
-            <p>Implemented three planners for autonomous driving in SuperTuxKart: an MLP mapping ground-truth lane boundaries to future waypoints, a Perceiver-inspired transformer using learned queries and cross-attention, and a CNN predicting vehicle-frame waypoints directly from images.</p>
+            <h2 id="planner-title">Three routes to autonomous driving.</h2>
+            <p>Implemented three SuperTuxKart planners: an MLP mapping ground-truth lane boundaries to future waypoints, a Perceiver-inspired transformer using learned queries and cross-attention, and a CNN predicting vehicle-frame waypoints directly from images.</p>
             <div class="tags">
               <span>MLP baseline</span>
               <span>Learned queries</span>
@@ -308,8 +308,8 @@
           <div>
             <div class="project-meta"><span>NLP Final Project</span><span>DeBERTa-v3-base &middot; MNLI &middot; HANS</span></div>
             <h3>Dataset cartography for robust NLI</h3>
-              <p>Applied established dataset-cartography methods to 392,702 MNLI examples across five epochs, mapping each example by confidence, variability, and correctness.</p>
-            <p>The best configuration down-weighted both easy and hard examples. It improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI validation accuracy; attempts to emphasize hard examples consistently hurt performance, pointing to possible label-quality issues in that region.</p>
+              <p>Applied established dataset-cartography methods to map 392,702 MNLI examples across five epochs, then built a custom category-weighted cross-entropy loss that scaled each sample&rsquo;s contribution according to its easy-to-learn, ambiguous, or hard-to-learn assignment. A custom Hugging Face callback captured per-example training dynamics, while a weighted PyTorch dataset and Trainer override carried those weights into fine-tuning.</p>
+            <p>The strongest configuration assigned weights of 0.5, 1.0, and 0.5 to easy, ambiguous, and hard examples. It improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI validation accuracy. Up-weighting hard examples consistently reduced performance, suggesting label-quality problems in that region.</p>
             <div class="project-actions">
               <a class="project-link" href="/docs/Making-DeBERTa-Smarter.pdf" download="Making-DeBERTa-Smarter.pdf">Download the course report <span aria-hidden="true">↓</span></a>
             </div>
@@ -319,7 +319,7 @@
               <img src="/assets/mnli-deberta-data-map.png" alt="Data map of 392,702 MNLI training examples plotted by confidence and variability, with easy-to-learn, hard-to-learn, and ambiguous regions labeled" loading="lazy" />
               <figcaption>Training dynamics across five epochs reveal distinct easy-to-learn, hard-to-learn, and ambiguous regions.</figcaption>
             </figure>
-            <div class="mini-pipeline" role="img" aria-label="NLP workflow: map 392,702 training examples, re-weight loss by learning difficulty, and evaluate on 30,000 HANS adversarial examples."><span>Map 392K examples</span><i>→</i><span>Re-weight loss by difficulty</span><i>→</i><span>Evaluate on 30K HANS examples</span></div>
+            <div class="mini-pipeline" role="img" aria-label="NLP workflow: map 392,702 training examples, apply a category-weighted loss, and evaluate on 30,000 HANS adversarial examples."><span>Map 392K examples</span><i>→</i><span>Apply category-weighted loss</span><i>→</i><span>Evaluate on 30K HANS examples</span></div>
           </div>
         </article>
         <div class="foundations reveal">
