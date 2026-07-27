@@ -5,6 +5,10 @@ const nav = document.querySelector("[data-nav]");
 const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
 const navFocusables = [...nav.querySelectorAll("a")];
 const revealItems = document.querySelectorAll(".reveal");
+const plannerVideo = document.querySelector("[data-planner-video]");
+const videoToggle = document.querySelector("[data-video-toggle]");
+const videoToggleIcon = document.querySelector("[data-video-toggle-icon]");
+const videoToggleLabel = document.querySelector("[data-video-toggle-label]");
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
@@ -58,6 +62,51 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.1 });
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+if (plannerVideo && videoToggle) {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let userPaused = reducedMotion.matches;
+  let videoInView = false;
+
+  const updateVideoControl = () => {
+    const paused = plannerVideo.paused;
+    videoToggle.setAttribute("aria-pressed", String(paused));
+    videoToggleIcon.textContent = paused ? "▶" : "Ⅱ";
+    videoToggleLabel.textContent = paused ? "Play animation" : "Pause animation";
+  };
+
+  const playVideo = () => {
+    if (reducedMotion.matches || userPaused || !videoInView) return;
+    plannerVideo.play().catch(updateVideoControl);
+  };
+
+  const videoObserver = new IntersectionObserver(([entry]) => {
+    videoInView = entry.isIntersecting;
+    if (videoInView) playVideo();
+    else plannerVideo.pause();
+  }, { threshold: 0.25 });
+
+  videoToggle.addEventListener("click", () => {
+    if (plannerVideo.paused) {
+      userPaused = false;
+      playVideo();
+    } else {
+      userPaused = true;
+      plannerVideo.pause();
+    }
+  });
+
+  plannerVideo.addEventListener("play", updateVideoControl);
+  plannerVideo.addEventListener("pause", updateVideoControl);
+  reducedMotion.addEventListener("change", (event) => {
+    userPaused = event.matches;
+    if (event.matches) plannerVideo.pause();
+    else playVideo();
+  });
+
+  updateVideoControl();
+  videoObserver.observe(plannerVideo);
+}
 
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

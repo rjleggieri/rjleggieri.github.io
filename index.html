@@ -271,6 +271,35 @@
         </div>
       </section>
 
+      <section class="planner-section" aria-labelledby="planner-title">
+        <article class="planner-case reveal">
+          <div class="planner-copy">
+            <p class="eyebrow">Graduate coursework &middot; Deep Learning &middot; UT Austin</p>
+            <h2 id="planner-title">Three approaches to waypoint planning.</h2>
+            <p>Implemented three planners for autonomous driving in SuperTuxKart: an MLP mapping ground-truth lane boundaries to future waypoints, a Perceiver-inspired transformer using learned queries and cross-attention, and a CNN predicting vehicle-frame waypoints directly from images.</p>
+            <div class="tags">
+              <span>MLP baseline</span>
+              <span>Learned queries</span>
+              <span>Cross-attention</span>
+              <span>Image-to-waypoint CNN</span>
+            </div>
+          </div>
+          <figure class="planner-media">
+            <div class="planner-video-frame">
+              <video data-planner-video autoplay muted loop playsinline preload="metadata" poster="/assets/mlp-planner-lighthouse-poster.jpg" aria-describedby="planner-video-caption">
+                <source src="/assets/mlp-planner-lighthouse.mp4" type="video/mp4" />
+              </video>
+              <img class="planner-video-fallback" src="/assets/mlp-planner-lighthouse-poster.jpg" alt="SuperTuxKart MLP planner navigating the Lighthouse track beside a visualization of lane boundaries and predicted waypoints" loading="lazy" />
+              <button class="video-toggle" type="button" data-video-toggle aria-pressed="false">
+                <span aria-hidden="true" data-video-toggle-icon>Ⅱ</span>
+                <span data-video-toggle-label>Pause animation</span>
+              </button>
+            </div>
+            <figcaption id="planner-video-caption">MLP lane-boundary planner navigating the Lighthouse track.</figcaption>
+          </figure>
+        </article>
+      </section>
+
       <section class="section additional-section" aria-labelledby="additional-title">
         <div class="compact-heading reveal">
           <div><p class="eyebrow">Graduate coursework · Natural Language Processing · UT Austin</p><h2 id="additional-title">Training models to learn<br />the task, not the shortcut.</h2></div>
