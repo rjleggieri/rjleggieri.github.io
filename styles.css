@@ -140,7 +140,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .architecture-sources > span, .architecture-node { display: flex; flex-direction: column; padding: .65rem; background: var(--cream); border: 1px solid var(--line); font-size: .78rem; font-weight: 800; }
 .architecture small { margin-top: .15rem; color: var(--muted); font-size: .65rem; font-weight: 500; }
 .architecture > b { color: var(--orange); font-weight: 500; }.architecture-node-accent { color: white; background: var(--green); }.architecture-node-accent small { color: rgba(255,255,255,.65); }
-.adl-section { color: var(--cream); background: var(--green); }
+.adl-section { padding-bottom: clamp(3.5rem,5vw,4.5rem); color: var(--cream); background: var(--green); }
 .adl-section .eyebrow { color: var(--orange-bright); }
 .adl-section .compact-heading > p { color: rgba(255,255,255,.68); }
 .adl-grid { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22); }
@@ -156,8 +156,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .adl-card-visual p { grid-column: 1; }
 .adl-card-visual img { grid-column: 2; grid-row: 1 / span 4; align-self: center; width: 100%; border: 1px solid rgba(255,255,255,.25); filter: saturate(.8); }
 
-.planner-section { padding: clamp(4rem,7vw,6rem) max(24px,calc((100vw - var(--max)) / 2)); background: var(--cream); }
-.planner-case { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem,6vw,6rem); align-items: center; padding: clamp(2.5rem,4vw,3.5rem) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.planner-section { padding: clamp(3.25rem,5vw,4.5rem) max(24px,calc((100vw - var(--max)) / 2)); background: var(--cream); }
+.planner-case { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem,6vw,6rem); align-items: center; }
 .planner-copy .eyebrow { margin-bottom: 1.1rem; }
 .planner-copy h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.5rem,4.5vw,4.25rem); font-weight: 400; line-height: .98; letter-spacing: -.05em; text-wrap: balance; }
 .planner-copy > p:not(.eyebrow) { margin: 1.4rem 0 1.6rem; color: var(--muted); font-size: .95rem; }
@@ -169,7 +169,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .video-toggle:hover { background: var(--ink); }
 .planner-media figcaption { margin-top: .55rem; color: var(--muted); font-size: .72rem; }
 
-.additional-section { padding-bottom: clamp(3rem,5vw,4.5rem); background: var(--paper); }
+.additional-section { padding-top: clamp(4rem,6vw,5rem); padding-bottom: clamp(3rem,5vw,4.5rem); background: var(--paper); }
 .additional-section .compact-heading { grid-template-columns: 1fr; max-width: 900px; }
 .compact-heading { display: grid; grid-template-columns: 1.5fr .7fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
 .nlp-case { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem,5vw,5rem); align-items: center; padding: 3rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -194,7 +194,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-bright);
 .tags span { padding: .3rem .5rem; border: 1px solid var(--line); font-size: .65rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 
 .credentials-section { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(3rem,7vw,7rem); padding: clamp(5.5rem,9vw,8rem) max(24px,calc((100vw - var(--max)) / 2)); color: white; background: var(--ink); }
-.credentials-heading .eyebrow { color: var(--orange-bright); }.credentials-heading h2 em { color: var(--orange-bright); font-weight: 400; }.credentials-heading > p:last-child { max-width: 520px; color: rgba(255,255,255,.65); }
+.credentials-heading .eyebrow { color: var(--orange-bright); }.credentials-heading h2 { text-wrap: balance; }.credentials-heading h2 em { color: var(--orange-bright); font-weight: 400; }.credentials-heading > p:last-child { max-width: 520px; color: rgba(255,255,255,.65); }
 .credentials-content { align-self: end; }
 .role-card { display: grid; grid-template-columns: 100px .75fr 1.25fr; gap: 1.4rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22); }
 .role-date { color: var(--orange-bright); font-size: .72rem; font-weight: 850; letter-spacing: .08em; }
