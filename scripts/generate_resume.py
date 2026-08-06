@@ -260,16 +260,16 @@ def generate():
         ),
         *section_rule("Technical Skills", styles),
         Paragraph("<b>AI / ML:</b> PyTorch, scikit-learn, Hugging Face Transformers, CNNs, multimodal learning, model evaluation, LoRA / QLoRA", styles["Skills"]),
-        Paragraph("<b>Data / Engineering:</b> Python, NumPy, Pandas, OpenCV, SQL / SQLite, REST APIs, OAuth 2.0 with PKCE, ETL pipelines, pytest, Git", styles["Skills"]),
+        Paragraph("<b>Data / Engineering:</b> Python, NumPy, Pandas, OpenCV, SQL / SQLite, REST APIs, ETL pipelines, pytest, Git", styles["Skills"]),
         Paragraph("<b>Systems / Automation:</b> PowerShell, Windows Server, network and security operations, workflow automation, vendor and infrastructure strategy", styles["Skills"]),
         *section_rule("Selected AI Projects", styles),
         project(
             "Text-Prosody Alignment: The \"I'm Fine\" Effect",
             "Graduate course research project, The University of Texas at Austin",
             [
-                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; sentiment-ADS reached approximately 0.62 cross-validated AUC, above audio-only at 0.49 but below text-only at approximately 0.70.",
-                "PHQ-elevated sessions showed a tighter ADS distribution with fewer high-ADS outliers; a threshold selected for case detection achieved approximately 0.80 sensitivity.",
-                "Published " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
+                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; sentiment-ADS reached 0.62 cross-validated AUC, above audio-only at 0.49 but below text-only at 0.70.",
+                "PHQ-elevated sessions showed a tighter ADS distribution with fewer high-ADS outliers; a threshold selected for case detection achieved 80% sensitivity.",
+                "Developed and publicly released " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
             ],
             styles,
         ),
@@ -278,7 +278,7 @@ def generate():
             "Professional project, Gutschick, Little & Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"),
             [
                 "Built a governed read-only ETL and reporting connector that normalizes authorized BQE CORE operational and financial data into an auditable warehouse and traceable context for an internal, human-reviewed AI planning workflow.",
-                "Implemented OAuth 2.0 Authorization Code with PKCE, permission-aware incremental sync, secure credential storage, retries, deduplication, SQLite validation controls, documented reconciliation requirements, and traceable planning exports.",
+                "The connector uses OAuth 2.0 Authorization Code with PKCE, permission-aware incremental sync, secure credential storage, retries, deduplication, SQLite validation controls, documented reconciliation requirements, and traceable planning exports.",
             ],
             styles,
         ),
@@ -295,7 +295,7 @@ def generate():
             "Graduate coursework, The University of Texas at Austin",
             [
                 "Implemented mixed precision, LoRA, 4-bit quantization, and QLoRA; built patch autoencoding, Binary Spherical Quantization, and autoregressive models for generative image compression.",
-                "Adapted smaller LLMs for mathematical reasoning and generated nearly one million grounded vision-language QA pairs from SuperTuxKart game state.",
+                "Fine-tuned smaller LLMs for mathematical reasoning and built a synthetic-data pipeline that generated nearly one million grounded VQA pairs directly from SuperTuxKart state for object identification and egocentric spatial reasoning without manual annotation.",
             ],
             styles,
         ),
