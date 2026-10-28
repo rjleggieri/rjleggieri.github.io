@@ -91,8 +91,8 @@ def build_styles():
             name="Summary",
             parent=styles["BodyText"],
             fontName="Helvetica",
-            fontSize=8.7,
-            leading=10.8,
+            fontSize=9.5,
+            leading=12,
             textColor=INK,
             spaceAfter=3,
         )
@@ -102,8 +102,8 @@ def build_styles():
             name="Skills",
             parent=styles["BodyText"],
             fontName="Helvetica",
-            fontSize=8,
-            leading=9.8,
+            fontSize=9,
+            leading=11.5,
             textColor=INK,
             leftIndent=0,
             spaceAfter=1.5,
@@ -114,8 +114,8 @@ def build_styles():
             name="ProjectTitle",
             parent=styles["Heading3"],
             fontName="Helvetica-Bold",
-            fontSize=9.1,
-            leading=10.5,
+            fontSize=10,
+            leading=12,
             textColor=INK,
             spaceBefore=3,
             spaceAfter=1,
@@ -127,8 +127,8 @@ def build_styles():
             name="ProjectMeta",
             parent=styles["Normal"],
             fontName="Helvetica-Oblique",
-            fontSize=7.4,
-            leading=8.6,
+            fontSize=8,
+            leading=10,
             textColor=MUTED,
             spaceAfter=2,
             keepWithNext=True,
@@ -139,8 +139,8 @@ def build_styles():
             name="ResumeBullet",
             parent=styles["BodyText"],
             fontName="Helvetica",
-            fontSize=8,
-            leading=9.7,
+            fontSize=9,
+            leading=11.3,
             textColor=INK,
             leftIndent=11,
             firstLineIndent=-7,
@@ -178,8 +178,8 @@ def build_styles():
             name="Education",
             parent=styles["BodyText"],
             fontName="Helvetica",
-            fontSize=8,
-            leading=9.8,
+            fontSize=9,
+            leading=11.5,
             textColor=INK,
             spaceAfter=3,
         )
@@ -234,91 +234,51 @@ def generate():
         bottomMargin=0.48 * inch,
         title="Robert Leggieri - Resume",
         author="Robert Leggieri",
-        subject="Applied AI, machine learning, and technology leadership",
+        subject="Applied NLP, model development, evaluation, and research software",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="main")
     doc.addPageTemplates(PageTemplate(id="resume", frames=[frame], onPage=page_footer))
 
     story = [
         Paragraph("Robert Leggieri", styles["Name"]),
-        Paragraph("APPLIED AI  |  ML ENGINEERING  |  TECHNOLOGY LEADERSHIP", styles["Positioning"]),
+        Paragraph("APPLIED AI &amp; NLP DEVELOPMENT", styles["Positioning"]),
         Paragraph(
             "Columbia, MD  |  (240) 446-8143  |  "
             + link("mailto:rjleggieri@gmail.com", "rjleggieri@gmail.com")
-            + "  |  "
-            + link("https://www.linkedin.com/in/rjleggieri/", "LinkedIn")
-            + "  |  "
-            + link("https://github.com/rjleggieri", "GitHub")
-            + "  |  "
-            + link("https://rjleggieri.github.io/", "Portfolio"),
-            styles["Contact"],
-        ),
+            + "  |  " + link("https://www.linkedin.com/in/rjleggieri/", "LinkedIn")
+            + "  |  " + link("https://github.com/rjleggieri", "GitHub")
+            + "  |  " + link("https://rjleggieri.github.io/", "Portfolio"), styles["Contact"]),
         *section_rule("Professional Summary", styles),
-        Paragraph(
-            "Technology leader with an M.S. in Artificial Intelligence from The University of Texas at Austin and over two decades of systems ownership. Builds practical, secure, and auditable AI solutions across natural language processing, speech, computer vision, and data engineering. Combines hands-on model implementation with operational judgment, security awareness, and cross-functional delivery.",
-            styles["Summary"],
-        ),
+        Paragraph("M.S. in Artificial Intelligence with project work in transformer training, NLP robustness, and reproducible model evaluation. Develops Python tools that connect data, experiments, and inspectable outputs. Brings more than twenty years of professional technology operations experience; seeking applied NLP and model development roles alongside researchers and software engineers.", styles["Summary"]),
         *section_rule("Technical Skills", styles),
-        Paragraph("<b>AI / ML:</b> PyTorch, scikit-learn, Hugging Face Transformers, CNNs, multimodal learning, model evaluation, LoRA / QLoRA", styles["Skills"]),
-        Paragraph("<b>Data / Engineering:</b> Python, NumPy, Pandas, OpenCV, SQL / SQLite, REST APIs, ETL pipelines, pytest, Git", styles["Skills"]),
-        Paragraph("<b>Systems / Automation:</b> PowerShell, Windows Server, network and security operations, workflow automation, vendor and infrastructure strategy", styles["Skills"]),
-        *section_rule("Selected AI Projects", styles),
-        project(
-            "Text-Prosody Alignment: The \"I'm Fine\" Effect",
-            "Graduate course research project, The University of Texas at Austin",
-            [
-                "Created the Alignment Discrepancy Score (ADS) across 189 DAIC-WOZ interviews; sentiment-ADS reached 0.62 cross-validated AUC, above audio-only at 0.49 but below text-only at 0.70.",
-                "PHQ-elevated sessions showed a tighter ADS distribution with fewer high-ADS outliers; a threshold selected for case detection achieved 80% sensitivity.",
-                "Developed and publicly released " + link("https://github.com/rjleggieri/text-prosody-evidence", "text-prosody-evidence") + ", a separate dataset-neutral reference implementation for leakage-aware evaluation, calibration, reliability, bootstrap intervals, provenance, and auditable evidence manifests.",
-            ],
-            styles,
-        ),
-        project(
-            "BQE CORE AI Data Connector",
-            "Professional project, Gutschick, Little & Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"),
-            [
-                "Built a governed read-only ETL and reporting connector that normalizes authorized BQE CORE operational and financial data into an auditable warehouse and traceable context for an internal, human-reviewed AI planning workflow.",
-                "The connector uses OAuth 2.0 Authorization Code with PKCE, permission-aware incremental sync, secure credential storage, retries, deduplication, SQLite validation controls, documented reconciliation requirements, and traceable planning exports.",
-            ],
-            styles,
-        ),
-        project(
-            "PraxiCom: Affect-Aware Simulated Patient",
-            "Archived 2025 prototype, UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub") + "  |  " + link("https://youtu.be/jZb3aR0x7cI", "Demo"),
-            [
-                "Built student and faculty interfaces, a Socket.IO relay, GuideLLM-informed personas, and Likert-scale evaluation around Hume EVI's low-latency voice-to-voice prototype; identified a modular speech pipeline as the next step for finer prompt control.",
-            ],
-            styles,
-        ),
-        project(
-            "Advances in Deep Learning",
-            "Graduate coursework, The University of Texas at Austin",
-            [
-                "Implemented mixed precision, LoRA, 4-bit quantization, and QLoRA; built patch autoencoding, Binary Spherical Quantization, and autoregressive models for generative image compression.",
-                "Fine-tuned smaller LLMs for mathematical reasoning and built a synthetic-data pipeline that generated nearly one million grounded VQA pairs directly from SuperTuxKart state for object identification and egocentric spatial reasoning without manual annotation.",
-            ],
-            styles,
-        ),
-        project(
-            "Dataset Cartography for Robust DeBERTa NLI",
-            "Graduate NLP coursework, The University of Texas at Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Report"),
-            [
-                "Mapped training dynamics for 392,702 MNLI examples across five epochs and implemented category-weighted loss in a custom Hugging Face Trainer; improved HANS adversarial accuracy from 77.49% to 78.59% while retaining 88.47% MNLI accuracy.",
-            ],
-            styles,
-        ),
+        Paragraph("<b>Model development:</b> Python, PyTorch, Hugging Face Transformers, scikit-learn, LoRA / QLoRA", styles["Skills"]),
+        Paragraph("<b>Data / evaluation:</b> NumPy, pandas, SQL / SQLite, grouped evaluation, calibration, pytest, Git", styles["Skills"]),
+        Paragraph("<b>Applications / integration:</b> REST APIs, ETL, React, Node.js, Socket.IO, PowerShell", styles["Skills"]),
+        *section_rule("Selected Projects", styles),
+        project("NLP Robustness through Training-Data Analysis", "Graduate NLP project, UT Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Paper"), [
+            "Instrumented DeBERTa training across 392,702 MNLI examples over five epochs; implemented category-weighted cross-entropy with a custom Hugging Face callback, weighted dataset, and Trainer override.",
+            "Selected weighting improved reported HANS accuracy from 77.49% to 78.59% (+1.10 points), alongside MNLI accuracy of 88.91% to 88.47% (-0.44 points); documented selection and uncertainty limits."
+        ], styles),
+        project("Auditable Data Integration for Planning and Reporting", "Professional project, Gutschick, Little &amp; Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
+            "Built a read-only BQE CORE connector that normalizes authorized operational and financial data into a validated SQLite warehouse and traceable outputs for an internal planning workflow.",
+            "Implemented OAuth PKCE, permission-aware incremental sync, retries, deduplication, validation, and synthetic demonstrations."
+        ], styles),
+        project("Reproducible Text / Speech Model Evaluation", "Public alpha reference software, released July 2026  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
+            "Developed dataset-neutral interfaces for leakage-aware grouping, nested evaluation, calibration, reliability, bootstrap intervals, and evidence provenance.",
+            "Published bounded text-component evidence; explicitly separated audio runtime checks and synthetic pipeline verification from scientific validation."
+        ], styles),
+        project("PraxiCom: Faculty-Directed Voice Simulation", "Archived spring 2025 academic prototype, UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
+            "Built React student and faculty interfaces, a Node.js / Socket.IO relay, synthetic personas, and faculty evaluation around Hume EVI, with guidance from nursing faculty."
+        ], styles),
         *section_rule("Professional Experience", styles),
-        Paragraph("Network Manager - Gutschick, Little & Weber, P.A.", styles["ExperienceTitle"]),
+        Paragraph("Network Manager - Gutschick, Little &amp; Weber, P.A.", styles["ExperienceTitle"]),
         Paragraph("Burtonsville, MD  |  July 2004 - Present", styles["ExperienceMeta"]),
-        *bullets(
-            [
-                "Own technology operations, network infrastructure, security, automation, vendor strategy, and long-range planning for an engineering firm supporting more than 40 users.",
-                "Use Python and PowerShell to automate workflows and integrate systems; translate business requirements into reliable, secure, and cost-conscious technology solutions.",
-            ],
-            styles,
-        ),
+        *bullets([
+            "Use Python and PowerShell to automate workflows, integrate business systems, and translate requirements into dependable, secure technical solutions.",
+            "Own technology operations, security, vendors, and infrastructure planning for an engineering firm supporting more than 40 users."
+        ], styles),
         *section_rule("Education", styles),
-        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA: 4.0  |  August 2026", styles["Education"]),
+        Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA 4.0  |  August 2026", styles["Education"]),
         Paragraph("<b>University of Maryland Global Campus</b> - B.S., Data Science, Summa Cum Laude  |  May 2024", styles["Education"]),
     ]
 
