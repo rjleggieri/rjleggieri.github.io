@@ -186,7 +186,7 @@ def generate():
     page('2. Methodology (continued)')
     h('2.4 Data map and learning regions')
     story.append(Image(str(FIGURE),width=504,height=302.4))
-    p('Figure 1. Original MNLI data-map graphic, reproduced without redrawing or changing its data. Variability is on the horizontal axis, confidence on the vertical axis, and color denotes correctness. Region labels are retained from the original figure.','CaptionText')
+    p('Figure 1. MNLI data map generated in this study from DeBERTa-v3-base training dynamics over five epochs. Variability is on the horizontal axis, confidence on the vertical axis, and color denotes correctness.','CaptionText')
     p('Easy examples have high, stable gold-label confidence; hard examples have low, stable confidence; ambiguous examples exhibit greater variability. The original figure describes ambiguous examples as having moderate variability. The operational distinction is relative to the selected threshold, not a universal definition. The report does not provide the full confidence-cutoff rules needed to reconstruct every assignment.')
     h('2.5 Category-weighted loss')
     p('Each example received a weight according to its assigned category. A <font face="Courier">WeightedMNLI_Dataset</font> exposed weights alongside model inputs and labels, and a <font face="Courier">WeightedLossTrainer</font> overrode loss computation. At example level, the reported intervention is:')
