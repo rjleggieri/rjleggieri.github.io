@@ -1,15 +1,9 @@
-"""Reissue the original NLI report without rerunning or altering its experiments.
-
-All tabulated observations and the embedded figure come from the archived course
-PDF. Editorial additions and reference corrections are explicitly identified.
-"""
+"""Build the standalone NLI research paper and synchronize its published copies."""
 from pathlib import Path
 from html import escape
-from io import BytesIO
 import shutil
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.pdfbase import pdfmetrics
@@ -17,16 +11,14 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import Font
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, PageBreak, Image, Table, TableStyle,
-    KeepTogether, Preformatted,
 )
-from pypdf import PdfReader, PdfWriter
+from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
-ORIGINAL = ROOT / 'docs/archive/Making-DeBERTa-Smarter-original.pdf'
 OUTPUT = ROOT / 'output/pdf/Making-DeBERTa-Smarter.pdf'
 FIGURE = ROOT / 'paper/figures/original-mnli-data-map.png'
 
-# These values are transcribed, not recomputed estimates.
+# Experimental results for the baseline and category-weighted models.
 MNLI_METRICS = [
     ['Evaluation loss', '0.6366', '0.6101'],
     ['Evaluation accuracy', '0.8891', '0.8847'],
@@ -138,7 +130,7 @@ def styles():
 def footer(canvas,doc):
     canvas.saveState();canvas.setStrokeColor(colors.HexColor('#c9cec9'));canvas.line(54,39,558,39)
     canvas.setFont('Body',8);canvas.setFillColor(colors.HexColor('#52605a'))
-    canvas.drawString(54,26,'Leggieri | Dataset cartography for NLI | Revised October 28, 2026')
+    canvas.drawString(54,26,'Leggieri | Dataset cartography for natural language inference')
     canvas.drawRightString(558,26,str(doc.page));canvas.restoreState()
 
 def generate():
@@ -159,20 +151,21 @@ def generate():
     p('Dataset Cartography for Robust Natural Language Inference','PaperTitle')
     p('Category-weighted DeBERTa training on MNLI and evaluation on HANS','Subtitle')
     p('Robert Leggieri · The University of Texas at Austin<br/>rjleggieri@utexas.edu')
-    p('<b>Revised portfolio edition · October 28, 2026.</b> Originally titled <i>Making DeBERTa Smarter: How Drawing a Map of Data Helped Our Model Stop Making Silly Mistakes</i>. This edition preserves the original reported results and figure, expands the discussion, and corrects verifiable bibliographic and interpretive errors. It is an editorial reissue, not an experimental replication. No models were retrained and no new predictions were generated.','SmallNote')
     h('Abstract')
-    p('This course study investigates whether category-weighted training informed by dataset cartography can improve the challenge-set performance of DeBERTa-v3-base. Training dynamics were recorded for 392,702 MNLI examples across five epochs and used to categorize examples as easy to learn, ambiguous, or hard to learn. A custom dataset and Trainer integrated category weights into cross-entropy loss. The selected configuration assigned weights of 0.5, 1.0, and 0.5, respectively, with a variability threshold of 0.2. Reported HANS accuracy increased from 77.49% to 78.59%, while MNLI validation accuracy declined from 88.91% to 88.47%. These observations show a modest, uneven challenge-set improvement accompanied by an in-domain trade-off. They do not establish the causal removal of shortcuts, statistical significance across training runs, or general robustness. The revised discussion examines persistent failures, model-selection uncertainty, competing explanations for hard-example weighting, and the documentation required for a stronger follow-up evaluation.')
+    p('This study investigates whether category-weighted training informed by dataset cartography can improve the robustness of DeBERTa-v3-base on natural language inference. We record training dynamics for 392,702 MNLI examples across five epochs, categorize examples by learning behavior, and incorporate category weights into cross-entropy loss. The selected configuration assigns weights of 0.5, 1.0, and 0.5 to easy, ambiguous, and hard examples, respectively, with a variability threshold of 0.2. HANS accuracy increases from 77.49% to 78.59%, while MNLI validation accuracy decreases from 88.91% to 88.47%. The improvement varies substantially across syntactic subcases, and several difficult constructions remain largely unsolved. Increasing the influence of hard examples is less effective than down-weighting them, motivating competing explanations involving annotation quality, ambiguity, and optimization. The findings support further investigation of training-data weighting while emphasizing the need for controlled model selection, repeated runs, and targeted error analysis.')
     h('1. Introduction')
-    p('Natural language inference (NLI) asks whether a hypothesis is entailed by, contradicts, or is neutral with respect to a premise. High benchmark accuracy can coexist with reliance on dataset regularities. Hypothesis-only baselines illustrate one diagnostic route to such artifacts (Poliak et al., 2018), while HANS probes three fallible syntactic heuristics using controlled examples (McCoy et al., 2019).')
-    p('Dataset cartography characterizes examples through model-dependent training dynamics (Swayamdipta et al., 2020). This study applies that framework to a re-weighting experiment, retaining the training set while changing the relative contribution of learning regions. The question is whether that intervention changes challenge-set behavior while retaining useful standard validation performance. It is not a test of fairness or general semantic understanding.')
+    p('Natural language inference (NLI) asks whether a hypothesis is entailed by, contradicts, or is neutral with respect to a premise. The task provides a useful setting for studying the gap between benchmark performance and robust language understanding. A classifier can achieve high accuracy by exploiting regularities that correlate with labels in its training distribution, yet fail when those regularities no longer support the correct inference. Hypothesis-only baselines expose one form of this problem (Poliak et al., 2018), while HANS tests three fallible syntactic heuristics through controlled sentence pairs (McCoy et al., 2019).')
+    p("Dataset cartography characterizes examples through a model's behavior over training epochs (Swayamdipta et al., 2020). Rather than treating all training examples as equally informative, the framework makes it possible to inspect regions that are learned consistently, inconsistently, or rarely. We use these signals to construct a category-weighted training objective. All examples remain in the training set; their contributions to the loss depend on their learning-region assignments.")
+
+    p('Our objective is to examine whether this intervention improves challenge-set behavior while retaining useful in-domain performance. We evaluate both MNLI and HANS, inspect the subcases contributing to the aggregate result, and analyze the trade-off introduced by the selected weighting. This separates the observed performance change from stronger hypotheses about shortcut removal or the quality of difficult training examples.')
 
     page('2. Methodology')
     h('2.1 Datasets and evaluation scope')
-    p('MNLI provides sentence pairs from multiple genres with entailment, neutral, and contradiction labels (Williams et al., 2018). The original study used 392,702 training examples. Its classification report contains 9,815 evaluated examples: 3,479 contradiction, 3,123 neutral, and 3,213 entailment. The report does not fully document the split identifier or preprocessing that produced these counts. This edition therefore states the evaluated support rather than treating the original general description of approximately 20,000 validation examples as the evaluated sample.')
-    p('HANS contains 30,000 examples organized into 30 subcases across lexical overlap, subsequence, and constituent heuristics (McCoy et al., 2019). Each subcase has 1,000 examples and a designated entailment or non-entailment label. This corrects the original description that implied 1,000 examples of each label within every subcase and included negation as a separate HANS heuristic. Table 3 preserves all original subcase results.')
-    h('2.2 Model and recorded training settings')
-    p('The model was DeBERTa-v3-base. The original DeBERTa architecture uses disentangled attention (He et al., 2021); DeBERTaV3 uses ELECTRA-style replaced-token detection with gradient-disentangled embedding sharing (He et al., 2023; Clark et al., 2020). Encoder pretraining is situated in the broader BERT family (Devlin et al., 2019). The reported configuration has 12 transformer layers, hidden size 768, and 12 attention heads.')
-    p('The study reports Hugging Face Transformers and PyTorch, a learning rate of 5 × 10<super>−5</super>, batch size 32, five epochs, and AdamW (Loshchilov and Hutter, 2019). Other Trainer settings were described as defaults. The hardware was an Intel Xeon W-2245 CPU, 32 GB RAM, and an RTX 4080 with 16 GB VRAM. These historical settings are retained, without asserting that unspecified contemporary library defaults reproduce the run.')
+    p('MNLI provides sentence pairs from multiple genres with entailment, neutral, and contradiction labels (Williams et al., 2018). We use 392,702 training examples. The validation comparison includes 9,815 examples: 3,479 contradiction, 3,123 neutral, and 3,213 entailment instances. Table 2 gives the corresponding class support alongside precision, recall, and F1 scores.')
+    p('HANS contains 30,000 examples organized into 30 subcases spanning lexical overlap, subsequence, and constituent heuristics (McCoy et al., 2019). Each subcase contains 1,000 examples with a designated entailment or non-entailment label. These controlled constructions test cases where a superficial heuristic either supports or conflicts with the correct inference. Table 3 presents accuracy for every subcase as well as overall accuracy.')
+    h('2.2 Model and training configuration')
+    p('We use DeBERTa-v3-base, with 12 transformer layers, hidden size 768, and 12 attention heads. DeBERTa introduces disentangled attention (He et al., 2021), and DeBERTaV3 combines ELECTRA-style replaced-token detection with gradient-disentangled embedding sharing (He et al., 2023; Clark et al., 2020). These models build on encoder-based pretraining approaches exemplified by BERT (Devlin et al., 2019).')
+    p('Training uses Hugging Face Transformers and PyTorch, a learning rate of 5 × 10<super>−5</super>, batch size 32, five epochs, and AdamW (Loshchilov and Hutter, 2019). Baseline and weighted models share the base Trainer configuration, with the category weights supplying the experimental intervention. Experiments run on an Intel Xeon W-2245 workstation with 32 GB RAM and an RTX 4080 GPU with 16 GB VRAM.')
     h('2.3 Training dynamics')
     p('A custom <font face="Courier">TrainingDynamicsCallback</font> recorded per-example logits and gold labels at each epoch end in JSON Lines files. For example i, let q(i,e) be the probability assigned to its gold label at epoch e and E = 5. The recorded measures were:')
     for text in [
@@ -187,23 +180,23 @@ def generate():
     h('2.4 Data map and learning regions')
     story.append(Image(str(FIGURE),width=504,height=302.4))
     p('Figure 1. MNLI data map generated in this study from DeBERTa-v3-base training dynamics over five epochs. Variability is on the horizontal axis, confidence on the vertical axis, and color denotes correctness.','CaptionText')
-    p('Easy examples have high, stable gold-label confidence; hard examples have low, stable confidence; ambiguous examples exhibit greater variability. The original figure describes ambiguous examples as having moderate variability. The operational distinction is relative to the selected threshold, not a universal definition. The report does not provide the full confidence-cutoff rules needed to reconstruct every assignment.')
+    p('Easy examples have high, stable gold-label confidence; hard examples have low, stable confidence; ambiguous examples exhibit greater variability. Figure 1 shows the relationship between these measures and correctness. Region names describe learning behavior relative to this model and training trajectory. They do not establish intrinsic difficulty or annotation quality, and their interpretation depends on the categorization thresholds.')
     h('2.5 Category-weighted loss')
-    p('Each example received a weight according to its assigned category. A <font face="Courier">WeightedMNLI_Dataset</font> exposed weights alongside model inputs and labels, and a <font face="Courier">WeightedLossTrainer</font> overrode loss computation. At example level, the reported intervention is:')
+    p('Each example receives a weight according to its assigned category. A <font face="Courier">WeightedMNLI_Dataset</font> exposes weights alongside model inputs and labels, and a <font face="Courier">WeightedLossTrainer</font> overrides loss computation. For example i with C possible labels, the weighted cross-entropy contribution is:')
     p('L<sub>i</sub> = w<sub>category(i)</sub> · [−∑<super>C</super><sub>c=1</sub> y<sub>i,c</sub> log p<sub>i,c</sub>]','Equation')
-    p('The selected weights were easy = 0.5, ambiguous = 1.0, and hard = 0.5, with variability threshold 0.2. The recorded search ranges were easy weights 0.0-0.5, ambiguous weights 1.0-1.2, hard weights 0.0-2.0, and variability thresholds 0.15-0.30. The original report describes categories derived from the baseline run; this is static category weighting, not documented online reassignment.')
-    p('Remaining hyperparameters were described as consistent with baseline training. The report does not specify the exact search grid, random seeds, initialization of each candidate, or batch-loss reduction and normalization. Those details should be recovered from implementation records before claiming exact experimental reproducibility.','SmallNote')
+    p('The selected weights are easy = 0.5, ambiguous = 1.0, and hard = 0.5, with variability threshold 0.2. We explore easy weights from 0.0 to 0.5, ambiguous weights from 1.0 to 1.2, hard weights from 0.0 to 2.0, and variability thresholds from 0.15 to 0.30. Category assignments are derived from the baseline training dynamics and remain fixed during weighted training. The intervention therefore changes the relative influence of learning regions without introducing online reassignment.')
+    p('The comparison evaluates category weighting within a shared training configuration. Weighting changes both the balance of examples and the magnitude of their loss contributions; loss normalization and effective optimization scale are relevant controls for interpreting the intervention.','SmallNote')
 
-    page('3. Reported MNLI results')
-    p('Tables 1 and 2 reproduce the original reported values. The baseline model identifier was <font face="Courier">deberta-v3-base_mnli</font>; the selected re-weighted identifier was <font face="Courier">deberta-v3-base_cart_(0.5-1.0-0.5)_mnli</font>.')
-    table('Table 1. MNLI evaluation metrics, unchanged.', ['Metric','Base model','Re-weighted model'],MNLI_METRICS,[264,120,120])
-    table('Table 2. MNLI classification report, unchanged.', ['Model','Class','Precision','Recall','F1','Support'],MNLI_CLASSES,[83,114,78,70,70,89])
+    page('3. Results: MNLI')
+    p('Tables 1 and 2 compare the baseline and selected category-weighted models. The baseline model identifier is <font face="Courier">deberta-v3-base_mnli</font>; the weighted model identifier is <font face="Courier">deberta-v3-base_cart_(0.5-1.0-0.5)_mnli</font>.')
+    table('Table 1. MNLI evaluation metrics for the baseline and category-weighted models.', ['Metric','Base model','Re-weighted model'],MNLI_METRICS,[264,120,120])
+    table('Table 2. MNLI classification performance and class support.', ['Model','Class','Precision','Recall','F1','Support'],MNLI_CLASSES,[83,114,78,70,70,89])
     h('3.1 Accuracy and loss are different observations')
-    p('Reported MNLI accuracy changes from 88.91% to 88.47%, a decline of 0.44 percentage points. Evaluation loss decreases from 0.6366 to 0.6101. Lower cross-entropy loss can coexist with lower accuracy because probability assignments and argmax decisions measure different aspects of predictions. The loss values alone do not demonstrate improved calibration; calibration metrics and predictions would be needed.')
-    p('The original overall precision, recall, and F1 values are retained without assigning an averaging scheme that was not specified. Small differences between rounded class recalls and aggregate accuracy are compatible with rounding. Evaluation runtime and throughput are historical measurements; this study did not control repeated timing trials and does not establish a speed advantage.')
+    p('MNLI accuracy decreases from 88.91% to 88.47%, a decline of 0.44 percentage points, while evaluation loss decreases from 0.6366 to 0.6101. Lower cross-entropy loss can coexist with lower accuracy because the two metrics describe different properties of predictions. The former depends on the probabilities assigned to labels; the latter depends on the highest-scoring label. The loss reduction alone does not establish improved calibration.')
+    p('The class-level results show small declines in precision, recall, and F1 across all three labels. The aggregate accuracy change therefore accompanies a broadly distributed in-domain cost rather than an isolated gain for one class. Small differences between rounded class recalls and aggregate accuracy are compatible with rounding. Runtime and throughput are measurements from these evaluations; without repeated timing trials, they do not establish a speed advantage.')
 
-    page('3. Reported HANS results')
-    p('Table 3. Original HANS subcase accuracies, unchanged. Each subcase contains 1,000 examples. Overall values are the original reported aggregate accuracies.','CaptionText')
+    page('3. Results: HANS')
+    p('Table 3. HANS subcase accuracy for the baseline and category-weighted models. Each subcase contains 1,000 examples.','CaptionText')
     data=[['Heuristic','Subcase','Base','Re-weighted'],*HANS]
     cell=ParagraphStyle('HansCell',parent=s['Cell'],fontSize=8,leading=9)
     t=Table([[Paragraph(escape(c),cell) for c in row] for row in data],colWidths=[88,266,70,80],repeatRows=1)
@@ -218,66 +211,44 @@ def generate():
     h('4.2 Aggregate accuracy hides persistent failures')
     p('Table 3 shows that some subcases are already near ceiling while others remain near zero. For example, <font face="Courier">cn_after_if_clause</font> moves from 0.00% to 1.40%, and <font face="Courier">cn_disjunction</font> from 0.40% to 1.50%. These are improvements in the recorded runs, but they do not solve those constructions. Similarly, <font face="Courier">sn_NP/S</font> changes from 0.10% to 0.00%. A higher overall average should not obscure continued systematic failure.')
     p('The strongest listed constituent gain is <font face="Courier">cn_embedded_under_verb</font>, from 58.60% to 68.50%. Other rows regress, including <font face="Courier">ce_embedded_under_since</font> and <font face="Courier">cn_embedded_under_if</font>. The intervention therefore redistributes errors unevenly. Examining error pairs, confusion patterns, and the linguistic content of improved and degraded examples would provide stronger evidence than the aggregate alone.')
-    p('The original discussion inferred a possible weakness from perfect performance on <font face="Courier">le_passive</font>. Perfect accuracy on that subcase is successful classification on those examples; it is not itself evidence that genuine entailments were missed. A claim of heuristic reliance requires contrasts where that heuristic succeeds and fails, and preferably targeted behavioral tests. HANS is useful precisely because its controlled contrasts can expose such differences (McCoy et al., 2019).')
+    p('Perfect accuracy on <font face="Courier">le_passive</font> indicates successful classification of those examples, but does not by itself reveal the decision rule used. A claim of heuristic reliance requires contrasts where the heuristic succeeds and fails. HANS is useful because its controlled constructions permit these behavioral comparisons (McCoy et al., 2019). The mixed subcase results call for examining patterns of changed decisions rather than inferring a general change in linguistic competence from a single score.')
     h('4.3 Difficulty is a model-dependent signal')
     p('The data map is useful as an instrument for inquiry, rather than a final judgment of example quality. Five recorded epochs provide only a short trajectory, and the same example may move between regions under different seeds, checkpoints, learning rates, or architectures. Threshold-based categories discretize continuous signals. A threshold of 0.2 is a selected experimental setting, not a transferable constant established by this study.')
 
     page('4. Discussion (continued)')
     h('4.4 Hard-example weighting does not diagnose label errors')
-    p('The original study reports that increasing hard-example weights worsened both standard and challenge-set performance. Its selected configuration down-weights hard examples as well as easy examples, despite an initial expectation that difficult cases would be informative. This is an important observation, but it does not establish why the hard region was detrimental.')
-    p('Swayamdipta et al. (2020) discuss learning regions and data quality, which makes annotation noise a plausible hypothesis. In this experiment, alternatives remain unresolved: ambiguous sentence pairs, rare but correctly labeled constructions, imperfect category rules, limits of the model, and unstable optimization. No human label audit or estimated label-error rate was reported. Down-weighting may suppress valuable rare examples as well as noisy examples.')
+    p('Increasing hard-example weights worsens both standard and challenge-set performance in the explored configurations. The selected model down-weights hard examples as well as easy examples, despite the initial expectation that difficult examples would provide useful learning signal. This observation challenges a simple equation of training difficulty with training value, but does not identify why emphasizing the hard region is detrimental.')
+    p('Swayamdipta et al. (2020) connect learning regions with data quality, making annotation noise one plausible explanation. Alternatives include genuine linguistic ambiguity, rare but correctly labeled constructions, imperfect category rules, limitations of the model, and unstable optimization. This experiment does not estimate a label-error rate or include a human annotation audit. Down-weighting could suppress valuable rare examples as well as noisy ones.')
     p('A useful follow-up would sample examples from each region for blinded review, separate annotation disagreement from clear errors, and compare region composition across labels and genres. Weighting should then be evaluated against those audits. Low confidence in a gold label is a reason to investigate that example, not permission to treat it as mislabeled.')
     h('4.5 Configuration selection and evaluation independence')
-    p('Multiple category weights and variability thresholds were explored before the selected result was reported. The original document does not identify a complete candidate history, an exclusive selection objective, or a challenge set kept untouched until configuration selection finished. Accordingly, HANS should be treated as a reported challenge-set comparison; this edition does not claim an independently held-out estimate of the selected configuration\'s generalization.')
+    p('We explore multiple category weights and variability thresholds before selecting the configuration presented here. The comparison is exploratory: it does not supply a separate final challenge-set estimate after configuration selection. HANS performance consequently provides evidence about behavior on this benchmark, but cannot establish how much of the selected gain transfers to an independently evaluated distribution.')
     p('Repeated inspection of a benchmark can make the best observed result optimistic, even when the benchmark is never used for gradient updates. A follow-up should distinguish training data, configuration-selection data, and final evaluation data. It should prerecord which metric determines selection and retain the outcomes of all candidates. If HANS informs design choices, a separate challenge set or a reserved evaluation protocol is needed for a stronger final claim.')
     h('4.6 Uncertainty and paired evidence')
-    p('The report contains one baseline-versus-selected-model comparison, without repeated-seed estimates or confidence intervals. The size of the observed gain does not by itself establish that the intervention reliably improves performance across training runs. Item-level paired predictions would permit analysis of changed decisions; repeated training runs would address a different uncertainty, namely sensitivity to stochastic training. Neither source of uncertainty is quantified here.')
-    p('HANS examples are generated from structured subcases. Treating all 30,000 observations as independent, identically distributed deployment cases would overstate the breadth of the evidence. Any future interval or significance procedure should state its sampling unit and the relationship between templates, subcases, and the target population. No significance test or interval is retroactively invented for this edition.')
+    p('The results compare one baseline model with one selected weighted model, without an estimate of variability across repeated training seeds. The observed improvement therefore does not establish that the intervention reliably improves performance across training runs. Paired item predictions could reveal which decisions change, while repeated runs would quantify sensitivity to stochastic training. These address different sources of uncertainty and should both inform a stronger evaluation.')
+    p('HANS examples are generated from structured subcases. Treating all 30,000 observations as independent, identically distributed deployment cases would overstate the breadth of the evidence. An uncertainty analysis should specify its sampling unit and account for the relationship between templates, subcases, and the target population. Statistical significance and population-level confidence intervals are not established by the aggregate accuracies in this study.')
 
-    page('5. Limits, next experiments, and conclusion')
-    h('5.1 Reporting and reproducibility limits')
-    p('The public report preserves the outcome tables, figure, selected weights, search ranges, and several training settings. It does not provide checkpoints, item predictions, full run logs, exact library versions, tokenization and truncation settings, complete category cutoffs, or all random seeds. It also does not establish whether weighted candidates were initialized from the same pretrained checkpoint or continued from another run. Exact experimental replication requires those records.')
-    p('MNLI uses three labels, while HANS distinguishes entailment from non-entailment. A replicable protocol must document how neutral and contradiction outputs are mapped to the HANS decision, including whether non-entailment probabilities are combined or labels are collapsed after prediction. The original report does not resolve that implementation detail. This edition retains its reported HANS scores without reconstructing the missing rule.')
+    page('5. Limitations and future work')
+    h('5.1 Scope of the comparison')
+    p('The comparison is limited to one model family, one training corpus, and one syntactic challenge set. It does not isolate category weighting from changes in effective optimization scale, exhaustively characterize sensitivity to categorization rules, or quantify training-seed variability. The observed trade-off should therefore be evaluated as a result for this configuration rather than a general property of dataset cartography.')
+    p('Reproducible follow-up experiments should specify dataset versions and exact split identifiers, preprocessing and tokenization, category thresholds, initialization, seeds, and loss normalization. MNLI uses three labels whereas HANS distinguishes entailment from non-entailment; the evaluation protocol should also distinguish collapsing predicted labels from aggregating non-entailment probabilities. These implementation choices should be fixed before comparing candidate models.')
     h('5.2 A focused follow-up design')
-    p('<b>First, recover and freeze the protocol.</b> Record dataset versions and split identifiers, preprocessing, category membership, seeds, initialization, optimizer settings, loss normalization, label mapping, and the selection objective. Preserve full candidate results and prediction artifacts.')
-    p('<b>Second, test the intervention in parts.</b> Compare unweighted training, easy-only down-weighting, hard-only down-weighting, and the selected combined weighting with matched training settings. Include a control for uniform loss scaling. Repeat the comparison across seeds before treating the selected configuration as reliable.')
-    p('<b>Third, investigate the errors.</b> Audit a stratified sample from the learning regions and inspect changed HANS predictions. Evaluate per-subcase behavior and in-domain error costs, rather than optimizing a single aggregate metric alone.')
-    p('<b>Fourth, test transfer with independent evidence.</b> Freeze design choices before evaluating a separate challenge distribution or domain dataset. Application-specific relevance, annotation quality, and human review should guide that evaluation. These are proposed experiments, not additional results of the present study.')
+    p('<b>Establish an explicit selection protocol.</b> Separate training, configuration selection, and final evaluation; define the selection objective in advance; and retain full candidate results, checkpoints, and paired prediction artifacts. This permits both auditing of the selected configuration and evaluation on data that did not guide its selection.')
+    p('<b>Isolate the weighting components.</b> Compare unweighted training, easy-only down-weighting, hard-only down-weighting, and combined weighting with matched training settings. Include a control for uniform loss scaling and repeat each comparison across seeds to estimate the stability of the trade-off.')
+    p('<b>Investigate learning regions and changed decisions.</b> Audit a stratified sample from each region, distinguish annotation disagreement from clear errors, and examine HANS predictions that improve or regress. Per-subcase behavior and in-domain error costs should guide interpretation alongside aggregate accuracy.')
+    p('<b>Evaluate transfer independently.</b> Freeze design choices before testing on a separate challenge distribution or domain dataset. Annotation quality and application-specific error costs should determine whether the resulting trade-off is useful.')
     h('5.3 Implications for applied NLP')
-    p('The transferable contribution is a workflow: instrument training, inspect example-level behavior, implement a controlled intervention, and compare performance across distributions. Such a workflow can support investigation of a domain-specific text classifier, but MNLI and HANS do not establish utility for vehicle complaints, clinical decisions, or another operational task. Robustness to selected linguistic constructions also does not establish demographic fairness, calibration, or safety.')
-    h('5.4 Conclusion')
-    p('Category-weighted DeBERTa training produced a reported HANS accuracy increase from 77.49% to 78.59%, alongside a MNLI decline from 88.91% to 88.47%. The preserved subcase results show both improvements and persistent weaknesses. The study supports further investigation of training-data weighting, with stronger selection controls, repeated runs, label audits, and independent evaluation required to establish its mechanism and reliability.')
+    p('The practical contribution is a workflow for connecting training-data inspection with a testable intervention: instrument training, examine example-level behavior, implement a weighting rule, and compare performance across distributions. The same workflow can guide investigation of a domain-specific text classifier, but any operational benefit requires evidence from that domain. Robustness on selected linguistic constructions does not by itself establish calibration, demographic fairness, or safety.')
+    p('6. Conclusion','Heading1')
+    p('Category-weighted DeBERTa training increases HANS accuracy from 77.49% to 78.59%, alongside a MNLI accuracy decline from 88.91% to 88.47%. The subcase analysis reveals both useful improvements and persistent failures, while the weighting experiments motivate closer examination of what makes a training example informative. Dataset cartography provides a structured basis for that investigation. Establishing the reliability and mechanism of the observed gain requires controlled ablations, repeated runs, annotation audits, and independent evaluation.')
 
     page('References')
-    p('Verified references used in this revised text. Appendix A records corrections; Appendix B preserves the entire original bibliography, including unresolved entries. Bibliographic verification was performed against publisher or author-hosted primary records on October 28, 2026.','SmallNote')
     for authors,title,url in REFERENCES:
         p(f'{escape(authors)} {escape(title)} <link href="{url}" color="#123f38">{url}</link>','Ref')
 
-    page('Appendix A. Editorial and reference provenance')
-    h('A.1 What was preserved')
-    p('All values in the original three result tables and the original 1000 × 600 pixel data-map image are preserved. No result was replaced with an inferred correction. Appendix B is an imported facsimile of the original bibliography page. The complete original nine-page report remains available separately as <font face="Courier">Making-DeBERTa-Smarter-original.pdf</font>.')
-    h('A.2 Verifiable corrections')
-    p('<b>HANS.</b> The original entry attributed a HANS paper to Gardner, Hu, and Baroni (2020). HANS is documented by McCoy, Pavlick, and Linzen (2019), <i>Right for the Wrong Reasons</i>. The revised dataset description and citation use that primary source.')
-    p('<b>Dataset cartography.</b> The original title, author list, and arXiv identifier were incorrect. The verified source is Swayamdipta et al. (2020), <i>Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics</i>, EMNLP. The original arXiv identifier 2004.04682 resolves to an unrelated mathematics paper.')
-    p('<b>Poliak.</b> The original entry combined an incorrect author list with a different title. The revised artifact discussion cites the verified Poliak et al. (2018) <i>Hypothesis Only Baselines in Natural Language Inference</i>. This is a transparent correction to the source supporting that claim, rather than a claim that the original entry was accurate.')
-    p('<b>Other retained sources.</b> BERT, DeBERTa, DeBERTaV3, AdamW, ELECTRA, and MNLI have verifiable primary records. Their metadata is normalized in the revised reference list; preprint identifiers are retained where appropriate. DeBERTaV3 is distinguished from the original DeBERTa architecture.')
-    h('A.3 Entries retained only in the original bibliography')
-    p('<b>Morris, He, and Gao (2020).</b> The original entry titled <i>Debiasing natural language inference models with adversarial training</i> could not be verified as written. Its arXiv identifier 2004.12345 points to an unrelated optimization paper. It is not used as support in the revised text.')
-    p('<b>Utama, Santoro, and Wolf (2020).</b> The original entry titled <i>Reducing label noise for visual question answering with auxiliary labeling tasks</i> could not be verified as written. Its arXiv identifier 2003.12345 points to an unrelated graph-theory paper. No intended replacement is guessed.')
-    p('<b>Zhou and Bansal (2020).</b> The original title and venue could not be verified as written. A real related paper, <i>Towards Robustifying NLI Models Against Lexical Dataset Biases</i>, by Xiang Zhou and Mohit Bansal, appears at <link href="https://aclanthology.org/2020.acl-main.773/" color="#123f38">ACL 2020, 8759-8771</link>. This is recorded as a related verified work, not silently substituted as proof of the original entry\'s intended identity.')
-    h('A.4 Reading Appendix B')
-    p('The following page is the original report\'s bibliography, reproduced as a facsimile for provenance. Its original page number and errors are intentionally retained. For sources supporting the revised discussion, use the verified reference list above.')
-
-    # Build cleanly, then append the original reference page without retypesetting it.
-    buffer=BytesIO()
-    doc=SimpleDocTemplate(buffer,pagesize=LETTER,leftMargin=54,rightMargin=54,topMargin=48,bottomMargin=54,
+    doc=SimpleDocTemplate(str(OUTPUT),pagesize=LETTER,leftMargin=54,rightMargin=54,topMargin=48,bottomMargin=54,
         title='Dataset Cartography for Robust Natural Language Inference',author='Robert Leggieri',
-        subject='Revised editorial edition; original experimental observations preserved')
+        subject='Category-weighted DeBERTa training on MNLI and evaluation on HANS')
     doc.build(story,onFirstPage=footer,onLaterPages=footer)
-    writer=PdfWriter();writer.append(PdfReader(buffer))
-    writer.append(PdfReader(str(ORIGINAL)),pages=(8,9))
-    writer.add_metadata({'/Title':'Dataset Cartography for Robust Natural Language Inference','/Author':'Robert Leggieri','/Subject':'Editorial reissue dated October 28, 2026; original results and bibliography preserved'})
-    with OUTPUT.open('wb') as f:writer.write(f)
     for dest in [ROOT/'docs/Making-DeBERTa-Smarter.pdf',ROOT/'public/docs/Making-DeBERTa-Smarter.pdf']:
         shutil.copyfile(OUTPUT,dest)
     print(f'Generated {OUTPUT} ({len(PdfReader(str(OUTPUT)).pages)} pages)')

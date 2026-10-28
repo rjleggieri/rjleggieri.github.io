@@ -33,11 +33,10 @@ python scripts/validate_documents.py
 ```
 
 Both generators update the copies under `docs/`, `public/docs/`, and `output/pdf/`.
-The revised NLI paper preserves the original reported results and extracted figure;
-it does not claim that experiments were rerun. The complete original course report
-is retained under `docs/archive/` and `public/docs/archive/`. Its original reference
-page is also appended unchanged to the revised edition. Reference corrections and
-unresolved entries are documented in the revised paper's provenance appendix.
+The NLI paper presents the study as a standalone manuscript, with methods,
+results, discussion, limitations, and verified references. The document validator
+checks the experimental values and figure against the archived course artifact
+under `docs/archive/` and checks consistency of all published PDF copies.
 
 ## Academic work
 
