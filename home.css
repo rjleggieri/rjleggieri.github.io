@@ -21,10 +21,7 @@
 .home-hero { padding-top: 49px; padding-bottom: 0; }
 .hero-layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; }
 .home-hero h1 { margin: 0; font-size: clamp(2.75rem, 4.5vw, 4.1rem); font-weight: 600; line-height: 1.02; }
-.home-hero h1 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; color: var(--accent); }
 .hero-description { font-size: 1.05rem; line-height: 1.7; margin: 0 0 17px; }
-.hero-credential { font-size: .82rem; font-weight: 650; line-height: 1.7; margin: 0; }
-.hero-credential span { color: var(--muted); font-weight: 400; }
 .portfolio-home .button { border-radius: 2px; font-size: .8rem; padding: 9px 15px; gap: 20px; }
 .portfolio-home .actions { margin: 21px 0 0; }
 .skills-ribbon { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 34px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -253,7 +250,6 @@
   .home-hero h1 { font-size: clamp(1.9rem, 10vw, 3.2rem); }
   .home-hero .eyebrow { font-size: .62rem; }
   .hero-description { font-size: .94rem; }
-  .hero-credential { font-size: .77rem; }
   .skills-ribbon { margin-top: 27px; grid-template-columns: 1fr; padding-block: 4px; }
   .skills-ribbon > div, .skills-ribbon > div:first-child { padding: 12px 0; border-left: 0; display: grid; grid-template-columns: .8fr 1.2fr; gap: 15px; align-items: center; }
   .skills-ribbon > div+div { border-top: 1px solid var(--line); }
