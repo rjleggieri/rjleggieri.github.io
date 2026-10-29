@@ -179,25 +179,29 @@
 .foundation-card .technical-index { font-size: .53rem; line-height: 1.7; margin-bottom: 14px; }
 .foundation-card h4 { margin: 0 0 12px; color: #f5f1e4; font-size: 1rem; font-weight: 550; line-height: 1.3; letter-spacing: -.02em; }
 .foundation-card p { font-size: .78rem; line-height: 1.7; color: #cad7c7; margin: 0; }
-.experience-home { padding-bottom: 50px!important; }
-.experience-columns { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: start; }
-.background-heading { margin-bottom: 33px; }
-.experience-role { padding-top: 22px; border-top: 1px solid var(--line); }
-.experience-role h3 { font-size: 1.55rem; margin: 0 0 8px; }
-.experience-role .role-location { font-size: .88rem; line-height: 1.7; margin: 0; }
+.portfolio-home .experience-home { padding-block: 42px; }
+.background-panel { padding: 27px 30px; border: 1px solid #cdd5c5; border-radius: 8px; background: #eef0e5; }
+.experience-columns { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: start; }
+.background-heading { display: grid; grid-template-columns: .85fr 1.2fr; gap: 32px; align-items: center; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #cdd5c5; }
+.background-heading h2 { font-family: inherit; font-size: 1.5rem; line-height: 1.25; font-weight: 600; margin: 0; }
+.background-heading > p { font-size: .81rem; line-height: 1.7; color: var(--muted); margin: 0; }
+.experience-role { min-width: 0; }
+.experience-role h3 { font-size: 1.4rem; margin: 0 0 7px; }
+.experience-role .role-location { font-size: .81rem; line-height: 1.7; margin: 0; }
 .experience-role .role-location span { color: var(--muted); }
-.experience-role ul { font-size: .87rem; line-height: 1.8; padding-left: 19px; margin: 23px 0 0; }
-.education-panel { border-top: 1px solid var(--line); padding-top: 22px; scroll-margin-top: 95px; }
-.education-panel > h3, .experience-role > .background-label { margin: 0 0 24px; font-size: .8rem; line-height: 1.4; font-weight: 650; color: var(--muted); }
+.role-divider { padding-inline: 3px; }
+.experience-role ul { font-size: .87rem; line-height: 1.7; padding-left: 18px; margin: 15px 0 0; }
+.education-panel { min-width: 0; border-left: 1px solid #cdd5c5; padding-left: 28px; scroll-margin-top: 95px; }
+.education-panel > h3, .experience-role > .background-label { margin: 0 0 16px; font-size: .65rem; line-height: 1.4; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .075em; }
 .experience-role > .project-type { font-size: .65rem; margin-bottom: 8px; }
-.degree-list { display: grid; gap: 20px; }
-.degree-entry { display: flex; gap: 18px; align-items: flex-start; }
-.degree-entry + .degree-entry { padding-top: 20px; border-top: 1px solid var(--line); }
-.degree-mark { flex: 0 0 43px; height: 43px; display: grid; place-items: center; border: 1px solid #b8c4af; background: #e8eee2; font-family: Georgia, serif; font-size: 1rem; color: var(--green); }
-.degree-entry .project-type { font-size: .65rem; margin: 0 0 8px; }
-.degree-entry h4 { font-size: 1.24rem; font-weight: 600; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 7px; }
+.degree-list { display: grid; gap: 16px; }
+.degree-entry { display: flex; gap: 13px; align-items: flex-start; }
+.degree-entry + .degree-entry { padding-top: 16px; border-top: 1px solid #cdd5c5; }
+.degree-mark { flex: 0 0 36px; height: 36px; display: grid; place-items: center; border: 1px solid #b8c4af; background: #e0e8d7; font-family: Georgia, serif; font-size: .9rem; color: var(--green); }
+.degree-entry .project-type { font-size: .65rem; margin: 0 0 5px; }
+.degree-entry h4 { font-size: 1.13rem; font-weight: 600; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 4px; }
 .degree-entry .degree-institution { font-size: .81rem; line-height: 1.8; margin: 0; }
-.degree-entry .degree-detail { color: var(--muted); font-size: .71rem; line-height: 1.8; margin: 7px 0 0; }
+.degree-entry .degree-detail { color: var(--muted); font-size: .71rem; line-height: 1.8; margin: 4px 0 0; }
 .degree-detail strong { font-weight: 600; color: var(--green); }
 .about-home { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; border-top: 1px solid var(--line); }
 .about-home h2 { font-size: 2.3rem; }
@@ -275,9 +279,12 @@
   .technical-visual > div { padding: 23px; }
   .foundation-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
   .foundation-card { padding: 20px 16px; }
-  .experience-columns { grid-template-columns: 1fr; gap: 27px; }
-  .background-heading { margin-bottom: 26px; }
-  .degree-entry { gap: 15px; }
+  .portfolio-home .experience-home { padding-block: 30px; }
+  .background-panel { padding: 23px 20px; }
+  .background-heading { grid-template-columns: 1fr; gap: 11px; padding-bottom: 18px; margin-bottom: 18px; }
+  .background-heading h2 { font-size: 1.4rem; }
+  .experience-columns { grid-template-columns: 1fr; gap: 22px; }
+  .education-panel { border-left: 0; border-top: 1px solid #cdd5c5; padding: 20px 0 0; }
   .degree-entry h4 { font-size: 1.14rem; }
   .about-home { grid-template-columns: 1fr; gap: 8px; }
   .about-home h2 { font-size: 2rem; }
