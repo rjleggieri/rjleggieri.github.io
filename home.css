@@ -76,7 +76,6 @@
 .app-image .image-topline { background: #193f35; width: 100%; z-index: 1; }
 .app-secondary { width: 46%; position: absolute; right: 17px; bottom: 50px; }
 .app-secondary img { width: 100%; border: 1px solid #89a094; box-shadow: 0 6px 18px #0d2e2590; }
-.app-secondary > span { display: block; color: #ecf0e4; font-size: .55rem; line-height: 1.4; margin-top: 5px; }
 .app-image figcaption { color: #e1e8dc; margin-top: auto; border-top-color: #7f9a8b55; background: #244a40; }
 .compact-results { display: flex; flex-wrap: wrap; gap: 17px; padding: 11px 0; margin-bottom: 3px; border-block: 1px solid var(--line); }
 .compact-results span { font-size: .66rem; color: var(--muted); }
@@ -107,15 +106,20 @@
 .technical-visual .technical-note { color: #b4c5b4; font-size: .69rem; margin-top: 15px; }
 .foundations-panel { border-top: 1px solid #708c7966; padding-top: 28px; margin-top: 37px; }
 .foundations-panel h3 { font-size: 1.05rem; margin-bottom: 20px; }
-.foundations-panel > div { display: grid; grid-template-columns: repeat(4,1fr); gap: 25px; }
-.foundations-panel p { font-size: .75rem; line-height: 1.7; color: #cad7c7; margin: 0; }
-.foundations-panel strong { display: block; color: #f5f1e4; margin-bottom: 7px; font-size: .76rem; }
+.foundation-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 17px; }
+.foundation-card { padding: 23px 19px; }
+.foundation-card .technical-index { font-size: .53rem; line-height: 1.7; margin-bottom: 14px; }
+.foundation-card h4 { margin: 0 0 12px; color: #f5f1e4; font-size: 1rem; font-weight: 550; line-height: 1.3; letter-spacing: -.02em; }
+.foundation-card p { font-size: .78rem; line-height: 1.7; color: #cad7c7; margin: 0; }
 .experience-home { padding-bottom: 50px!important; }
-.experience-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 70px; padding-top: 27px; border-top: 1px solid var(--line); }
-.experience-row h3 { font-size: 1.55rem; margin: 0 0 8px; }
-.experience-row p:not(.project-type) { font-size: .88rem; line-height: 1.7; margin: 0; }
-.experience-row p span { color: var(--muted); }
-.experience-row ul { font-size: .87rem; line-height: 1.8; padding-left: 19px; margin: 0; }
+.experience-columns { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+.experience-overview h2 { margin: 0 0 23px; }
+.experience-overview > p:last-child { max-width: 400px; font-size: .92rem; color: var(--muted); line-height: 1.8; margin: 0; }
+.experience-role { padding-top: 22px; border-top: 1px solid var(--line); }
+.experience-role h3 { font-size: 1.55rem; margin: 0 0 8px; }
+.experience-role .role-location { font-size: .88rem; line-height: 1.7; margin: 0; }
+.experience-role .role-location span { color: var(--muted); }
+.experience-role ul { font-size: .87rem; line-height: 1.8; padding-left: 19px; margin: 23px 0 0; }
 .education-home { padding-block: 42px; background: #e8e9dd; border-block: 1px solid var(--line); }
 .education-home h2 { font-size: 2rem; }
 .degree-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 24px; }
@@ -140,6 +144,7 @@
   .technical-card { padding: 21px 17px; }
   .technical-section h3 { font-size: 1.17rem; }
   .project-copy h3 { font-size: 1.4rem; }
+  .foundation-grid { grid-template-columns: 1fr 1fr; }
 }
 @media(max-width: 760px) {
   .portfolio-home .wrap { padding-inline: 22px; }
@@ -183,8 +188,9 @@
   .technical-card p { font-size: .87rem; }
   .technical-visual-grid { margin-top: 20px; }
   .technical-visual > div { padding: 23px; }
-  .foundations-panel > div { grid-template-columns: 1fr 1fr; gap: 23px; }
-  .experience-row { grid-template-columns: 1fr; gap: 20px; }
+  .foundation-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .foundation-card { padding: 20px 16px; }
+  .experience-columns { grid-template-columns: 1fr; gap: 27px; }
   .education-home { padding-block: 32px; }
   .degree-grid { grid-template-columns: 1fr; gap: 25px; }
   .about-home { grid-template-columns: 1fr; gap: 8px; }
@@ -193,7 +199,7 @@
 }
 @media(max-width: 360px) {
   .home-hero h1 { font-size: 2.25rem; }
-  .foundations-panel > div { grid-template-columns: 1fr; }
+  .foundation-grid { grid-template-columns: 1fr; }
   .app-secondary { bottom: 43px; right: 10px; }
   .compact-results { gap: 10px; }
   .compact-results strong { font-size: 1rem; }
