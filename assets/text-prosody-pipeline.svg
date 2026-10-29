@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+<title id="title">Text-prosody research pipeline</title><desc id="desc">189 interviews are segmented into 32,401 aligned utterances. Separate text and audio models feed heuristic coordinate projections and an engineered distance score. Session features support out-of-fold PHQ-8 prediction.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#193f35" stroke-opacity=".05"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#a14c25"/></marker></defs>
+<rect width="1200" height="940" fill="#f3e9dc"/><rect width="1200" height="940" fill="url(#grid)"/>
+<style>text{font-family:Arial,sans-serif;fill:#193f35}.over{font-size:19px;font-weight:700;letter-spacing:3px;fill:#a14c25}.title{font-size:44px;font-weight:700;letter-spacing:-1px}.label{font-size:25px;font-weight:700}.small{font-size:22px;fill:#58645b}.white{fill:#f6f3eb}.wire{fill:none;stroke:#a14c25;stroke-width:4;marker-end:url(#arrow)}</style>
+<text x="65" y="70" class="over">TEXT + AUDIO / RESEARCH IMPLEMENTATION</text><text x="65" y="136" class="title">From interview to evaluation.</text>
+<rect x="65" y="180" width="1070" height="130" rx="12" fill="#fffdf7" stroke="#c7cfc0"/><text x="100" y="225" class="label">189 interviews → 32,401 aligned utterances</text><text x="100" y="270" class="small">Participant turns · timestamped clips · label joins</text>
+<path d="M600 310V345H315V378M600 345H885V378" class="wire"/>
+<rect x="65" y="390" width="500" height="157" rx="12" fill="#fffdf7" stroke="#c7cfc0"/><text x="98" y="437" class="over">TEXT MODEL OUTPUTS</text><text x="98" y="483" class="label">Sentiment / emotion probabilities</text><text x="98" y="521" class="small">RoBERTa · DistilRoBERTa</text>
+<rect x="635" y="390" width="500" height="157" rx="12" fill="#193f35"/><text x="670" y="437" class="over" style="fill:#efb388">AUDIO MODEL OUTPUTS</text><text x="670" y="483" class="label white">Speech-emotion probabilities</text><text x="670" y="521" class="small" style="fill:#cbd7c8">wav2vec 2.0 / SUPERB</text>
+<path d="M315 548V584H550V620M885 548V584H650V620" class="wire"/>
+<rect x="140" y="635" width="920" height="123" rx="12" fill="#dce5d5"/><text x="180" y="681" class="label">Heuristic projections → ADS → session features</text><text x="180" y="724" class="small">Mean · spread · maximum · high-score proportion · streak</text>
+<path d="M600 758V797" class="wire"/><text x="600" y="843" text-anchor="middle" class="label">PHQ-8 prediction / out-of-fold evaluation</text><text x="600" y="893" text-anchor="middle" class="small">Implemented features; measurement assumptions examined in the report.</text>
+</svg>

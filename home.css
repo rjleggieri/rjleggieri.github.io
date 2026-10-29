@@ -77,6 +77,39 @@
 .app-secondary { width: 46%; position: absolute; right: 17px; bottom: 50px; }
 .app-secondary img { width: 100%; border: 1px solid #89a094; box-shadow: 0 6px 18px #0d2e2590; }
 .app-image figcaption { color: #e1e8dc; margin-top: auto; border-top-color: #7f9a8b55; background: #244a40; }
+.bqe-feature { margin-top: 42px; }
+.bqe-feature .implementation { font-size: .82rem!important; color: var(--muted); }
+.praxicom-feature { margin-top: 42px; padding: 38px; background: #173c33; color: #f6f3eb; border: 1px solid #254e40; border-radius: 8px; scroll-margin-top: 95px; }
+.praxicom-intro { display: grid; grid-template-columns: 1.08fr 1fr; gap: 56px; align-items: start; }
+.praxicom-feature .project-type { color: #efb388; font-size: .66rem; margin-bottom: 18px; }
+.praxicom-feature h3 { font-size: clamp(2.05rem,3.5vw,3.1rem); font-weight: 600; line-height: 1.06; margin: 0 0 20px; }
+.praxicom-feature h3 em { color: #efb388; font-family: Georgia,serif; font-weight: 400; }
+.praxicom-lede { color: #e0e7d9; font-size: .94rem; line-height: 1.8; max-width: 470px; margin: 0 0 24px; }
+.praxicom-feature .project-links { gap: 18px 24px; align-items: center; }
+.praxicom-feature a { color: #f6f3eb; }
+.praxicom-feature .praxicom-demo-link { border-color: #efb388; background: #efb388; color: #173c33; font-weight: 750; }
+.praxicom-feature a:hover { color: #efb388; }
+.praxicom-feature .praxicom-demo-link:hover { background: #f9c7a1; color: #173c33; }
+.praxicom-kicker { margin: 0 0 12px; color: #efb388; font-size: .67rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+.praxicom-build > p:not(.praxicom-kicker) { font-size: .86rem; line-height: 1.8; color: #d5dfd2; margin: 0 0 20px; }
+.praxicom-build strong { color: #f6f3eb; font-weight: 600; }
+.praxicom-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 17px 24px; border-top: 1px solid #6f8c7977; padding-top: 19px; }
+.praxicom-facts strong { font-size: 1.05rem; display: block; }
+.praxicom-facts span { display: block; font-size: .65rem; color: #c6d5c4; margin-top: 4px; }
+.praxicom-screens { display: grid; grid-template-columns: 1.08fr 1fr; gap: 24px; margin-top: 34px; align-items: start; }
+.praxicom-screens figure { min-width: 0; background: #0f2e26; border: 1px solid #6f8c7977; border-radius: 3px; overflow: hidden; }
+.praxicom-screen-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 14px; font-size: .55rem; line-height: 1.6; letter-spacing: .04em; color: #efb388; }
+.praxicom-screen-label span:last-child { color: #c6d5c4; text-transform: none; }
+.praxicom-screens img { width: 100%; height: auto; background: white; }
+.praxicom-screens figcaption { padding: 12px 14px; font-size: .65rem; line-height: 1.7; color: #d1ddcc; margin: 0; }
+.praxicom-workflow { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; margin-top: 29px; padding-top: 24px; border-top: 1px solid #6f8c7977; }
+.praxicom-workflow > div { display: flex; gap: 13px; }
+.praxicom-workflow > div > span { color: #efb388; font-size: .65rem; margin-top: 2px; }
+.praxicom-workflow p { font-size: .76rem; line-height: 1.8; color: #c6d5c4; margin: 0; }
+.praxicom-workflow strong { display: block; font-size: .85rem; color: #f6f3eb; margin-bottom: 5px; }
+.praxicom-footer { margin-top: 25px; padding-top: 20px; border-top: 1px solid #6f8c7977; }
+.praxicom-footer .tool-tags span { color: #e6ecdd; background: #0f2e26; border-color: #6f8c7977; }
+.praxicom-footer > p { font-size: .66rem; line-height: 1.8; color: #c6d5c4; margin: 14px 0 0; }
 .compact-results { display: flex; flex-wrap: wrap; gap: 17px; padding: 11px 0; margin-bottom: 3px; border-block: 1px solid var(--line); }
 .compact-results span { font-size: .66rem; color: var(--muted); }
 .compact-results strong { color: var(--green); font-size: 1.14rem; margin-right: 4px; }
@@ -94,6 +127,12 @@
 .prosody-followthrough { border-left: 3px solid var(--green); background: #e8eee2; padding: 15px 18px; margin-bottom: 20px; }
 .prosody-followthrough h4 { margin: 0 0 7px; font-size: .92rem; }
 .prosody-followthrough p { font-size: .82rem; line-height: 1.8; margin: 0; }
+.prosody-copy .prosody-finding { font-size: .79rem!important; line-height: 1.8; color: var(--muted); margin-bottom: 22px; }
+.prosody-finding strong { color: var(--ink); }
+.prosody-links { margin-top: 22px; gap: 18px 26px; }
+.prosody-links .text-link { gap: 10px; }
+.link-format { font-size: .62rem; font-weight: 400; color: var(--muted); }
+#text-prosody, #prosody-evaluation { scroll-margin-top: 95px; }
 .technical-section { padding-block: 65px; background: #193f35; color: #f6f3e9; }
 .technical-section .eyebrow { color: #efb18a; }
 .technical-section h2 em { color: #efb18a; }
@@ -195,6 +234,18 @@
   .project-copy { padding-top: 19px; }
   .project-copy h3 { font-size: 1.5rem; }
   .project-type { font-size: .61rem; }
+  .praxicom-feature { padding: 25px 20px; margin-top: 30px; }
+  .praxicom-intro, .praxicom-screens { grid-template-columns: 1fr; gap: 28px; }
+  .praxicom-feature h3 { font-size: clamp(2rem,7vw,3rem); }
+  .praxicom-lede { font-size: .9rem; }
+  .praxicom-feature .project-links { gap: 15px; }
+  .praxicom-feature .button { gap: 10px; padding: 10px 12px; font-size: .75rem; }
+  .praxicom-screens { margin-top: 27px; gap: 20px; }
+  .praxicom-workflow { grid-template-columns: 1fr; gap: 18px; }
+  .praxicom-facts { gap: 17px 12px; }
+  .praxicom-facts strong { font-size: .94rem; }
+  .praxicom-facts span { font-size: .62rem; }
+  .praxicom-screens figcaption { font-size: .63rem; }
   .project-copy .project-boundary { margin-bottom: 13px; }
   .technical-section { padding-block: 39px; }
   .technical-grid, .technical-visual-grid { grid-template-columns: 1fr; gap: 17px; }
