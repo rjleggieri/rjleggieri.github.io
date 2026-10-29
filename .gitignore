@@ -4,3 +4,5 @@ dist/
 *.log
 dev-server*.log
 tmp/
+.playwright-cli/
+output/playwright/
