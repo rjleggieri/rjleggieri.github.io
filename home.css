@@ -111,7 +111,7 @@
 .praxicom-screens figure { min-width: 0; background: #0f2e26; border: 1px solid #6f8c7977; border-radius: 3px; overflow: hidden; }
 .praxicom-screen-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 14px; font-size: .55rem; line-height: 1.6; letter-spacing: .04em; color: #efb388; }
 .praxicom-screen-label span:last-child { color: #c6d5c4; text-transform: none; }
-.praxicom-screens img { width: 100%; height: auto; background: white; }
+.praxicom-screens img { width: 100%; height: auto; padding: clamp(10px, 1.2vw, 16px); background: #f6f7f2; }
 .praxicom-screens figcaption { padding: 12px 14px; font-size: .65rem; line-height: 1.7; color: #d1ddcc; margin: 0; }
 .praxicom-workflow { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; margin-top: 29px; padding-top: 24px; border-top: 1px solid #6f8c7977; }
 .praxicom-workflow > div { display: flex; gap: 13px; }
