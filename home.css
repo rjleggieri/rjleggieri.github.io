@@ -238,6 +238,10 @@
   .project-copy h3 { font-size: 1.4rem; }
   .foundation-grid { grid-template-columns: 1fr 1fr; }
 }
+@media(min-width: 761px) and (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+  .hero-intro { max-width: 650px; }
+}
 @media(max-width: 760px) {
   .portfolio-home .wrap { padding-inline: 22px; }
   .portfolio-home .site-header { padding: 12px 22px; }
@@ -246,7 +250,7 @@
   .portfolio-home .site-header nav { font-size: .8rem; gap: 13px 20px; }
   .home-hero { padding-top: 30px; }
   .hero-layout { grid-template-columns: 1fr; gap: 22px; }
-  .home-hero h1 { font-size: clamp(2.45rem, 8.7vw, 3.2rem); }
+  .home-hero h1 { font-size: clamp(1.9rem, 10vw, 3.2rem); }
   .home-hero .eyebrow { font-size: .62rem; }
   .hero-description { font-size: .94rem; }
   .hero-credential { font-size: .77rem; }
@@ -314,7 +318,6 @@
   .portfolio-home footer { padding-inline: 22px; }
 }
 @media(max-width: 360px) {
-  .home-hero h1 { font-size: 2.25rem; }
   .foundation-grid { grid-template-columns: 1fr; }
   .app-secondary { bottom: 43px; right: 10px; }
   .compact-results { gap: 10px; }
