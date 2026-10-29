@@ -30,6 +30,7 @@
 .ribbon-label { color: var(--accent); font-size: .63rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 750; }
 .skills-ribbon p { font-size: .84rem; line-height: 1.65; margin: 5px 0 0; }
 .portfolio-home .section { padding-block: 62px; }
+.portfolio-home .selected-work { padding-bottom: 48px; }
 .home-section-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: end; margin-bottom: 31px; }
 .home-section-heading h2 { margin: 0; }
 .home-section-heading > p { font-size: .95rem; color: var(--muted); margin: 0 0 4px; max-width: 470px; }
@@ -52,6 +53,8 @@
 .metric-pair small { display: block; margin-top: 4px; font-size: .67rem; color: var(--muted); }
 .project-boundary { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 13px 0 17px; }
 .text-link { display: inline-flex; align-items: center; gap: 17px; font-size: .8rem; font-weight: 700; text-decoration-thickness: 1px; }
+.report-link { gap: 10px; }
+.report-link .link-format { white-space: nowrap; }
 .visual-project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 36px; margin-top: 42px; }
 .visual-project { min-width: 0; display: flex; flex-direction: column; }
 .visual-project > .project-image { aspect-ratio: 1.53; display: flex; flex-direction: column; }
@@ -74,7 +77,8 @@
 .app-secondary { width: 46%; position: absolute; right: 17px; bottom: 50px; }
 .app-secondary img { width: 100%; border: 1px solid #89a094; box-shadow: 0 6px 18px #0d2e2590; }
 .app-image figcaption { color: #e1e8dc; margin-top: auto; border-top-color: #7f9a8b55; background: #244a40; }
-.bqe-feature { margin-top: 42px; align-items: start; scroll-margin-top: 95px; }
+.bqe-feature { margin-top: 42px; align-items: start; }
+.project-feature.bqe-feature { border-bottom: 0; padding-bottom: 0; }
 .bqe-visuals { min-width: 0; }
 .bqe-output-image { background: #e7ecdf; }
 .bqe-output-image img { width: 100%; height: auto; }
@@ -90,7 +94,7 @@
 .bqe-engineering ul { padding-left: 16px; margin: 0; font-size: .75rem; line-height: 1.8; }
 .bqe-engineering li+li { margin-top: 7px; }
 .bqe-feature .implementation { font-size: .82rem!important; color: var(--muted); }
-.praxicom-feature { margin-top: 42px; padding: 38px; background: #173c33; color: #f6f3eb; border: 1px solid #254e40; border-radius: 8px; scroll-margin-top: 95px; }
+.praxicom-feature { margin-top: 42px; padding: 38px; background: #173c33; color: #f6f3eb; border: 1px solid #254e40; border-radius: 8px; }
 .praxicom-intro { display: grid; grid-template-columns: 1.08fr 1fr; gap: 56px; align-items: start; }
 .praxicom-feature .project-type { color: #efb388; font-size: .66rem; margin-bottom: 18px; }
 .praxicom-feature h3 { font-size: clamp(2.05rem,3.5vw,3.1rem); font-weight: 600; line-height: 1.06; margin: 0 0 20px; }
@@ -107,12 +111,12 @@
 .praxicom-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 17px 24px; border-top: 1px solid #6f8c7977; padding-top: 19px; }
 .praxicom-facts strong { font-size: 1.05rem; display: block; }
 .praxicom-facts span { display: block; font-size: .65rem; color: #c6d5c4; margin-top: 4px; }
-.praxicom-screens { display: grid; grid-template-columns: 1.08fr 1fr; gap: 24px; margin-top: 34px; align-items: start; }
-.praxicom-screens figure { min-width: 0; background: #0f2e26; border: 1px solid #6f8c7977; border-radius: 3px; overflow: hidden; }
+.praxicom-screens { display: grid; grid-template-columns: 1.08fr 1fr; gap: 24px; margin-top: 34px; align-items: stretch; }
+.praxicom-screens figure { min-width: 0; display: flex; flex-direction: column; background: #0f2e26; border: 1px solid #6f8c7977; border-radius: 3px; overflow: hidden; }
 .praxicom-screen-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 14px; font-size: .55rem; line-height: 1.6; letter-spacing: .04em; color: #efb388; }
 .praxicom-screen-label span:last-child { color: #c6d5c4; text-transform: none; }
 .praxicom-screens img { width: 100%; height: auto; padding: clamp(10px, 1.2vw, 16px); background: #f6f7f2; }
-.praxicom-screens figcaption { padding: 12px 14px; font-size: .65rem; line-height: 1.7; color: #d1ddcc; margin: 0; }
+.praxicom-screens figcaption { flex: 1; padding: 12px 14px; font-size: .65rem; line-height: 1.7; color: #d1ddcc; margin: 0; }
 .praxicom-workflow { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; margin-top: 29px; padding-top: 24px; border-top: 1px solid #6f8c7977; }
 .praxicom-workflow > div { display: flex; gap: 13px; }
 .praxicom-workflow > div > span { color: #efb388; font-size: .65rem; margin-top: 2px; }
@@ -144,13 +148,14 @@
 .prosody-links { margin-top: 22px; gap: 18px 26px; }
 .prosody-links .text-link { gap: 10px; }
 .link-format { font-size: .62rem; font-weight: 400; color: var(--muted); }
-#text-prosody, #prosody-evaluation { scroll-margin-top: 95px; }
 .technical-section { padding-block: 65px; background: #193f35; color: #f6f3e9; }
 .technical-section .eyebrow { color: #efb18a; }
 .technical-section h2 em { color: #efb18a; }
 .technical-section .home-section-heading > p { color: #d0dacf; font-size: .87rem; line-height: 1.8; }
 .technical-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
 .technical-card { border: 1px solid #708c794d; background: #244a3f; padding: 25px 22px; }
+.technical-grid > .technical-card { display: flex; flex-direction: column; }
+.technical-grid .technical-card .method-strip, .technical-grid .technical-card .tool-tags { margin-top: auto; margin-bottom: 0; padding-top: 20px; }
 .technical-index { display: block; color: #efb18a; font-size: .59rem; letter-spacing: .09em; font-weight: 650; margin-bottom: 17px; }
 .technical-section h3 { font-size: 1.32rem; line-height: 1.2; font-weight: 550; margin: 0 0 12px; }
 .technical-card p { color: #d4ded3; font-size: .88rem; line-height: 1.7; margin: 0; }
@@ -188,7 +193,7 @@
 .experience-role .role-location span { color: var(--muted); }
 .role-divider { padding-inline: 3px; }
 .experience-role ul { font-size: .87rem; line-height: 1.7; padding-left: 18px; margin: 15px 0 0; }
-.education-panel { min-width: 0; border-left: 1px solid #cdd5c5; padding-left: 28px; scroll-margin-top: 95px; }
+.education-panel { min-width: 0; border-left: 1px solid #cdd5c5; padding-left: 28px; }
 .education-panel > h3, .experience-role > .background-label { margin: 0 0 16px; font-size: .65rem; line-height: 1.4; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .075em; }
 .experience-role > .project-type { font-size: .65rem; margin-bottom: 8px; }
 .degree-list { display: grid; gap: 16px; }
@@ -221,6 +226,7 @@
 .contact-links { display: flex; flex-wrap: wrap; gap: 14px 19px; margin-top: 20px; }
 .contact-links a { font-size: .73rem; font-weight: 600; color: #f6f3eb; }
 .contact-links a:hover { color: #efb388; }
+.praxicom-feature a:focus-visible, .technical-section a:focus-visible, .about-contact a:focus-visible { outline-color: #efb388; }
 .contact-links span { margin-left: 5px; }
 .portfolio-home footer { padding-inline: 32px; max-width: var(--max); border-top: 1px solid var(--line); }
 @media(min-width: 1440px) { .home-hero { padding-top: 60px; } }
@@ -229,6 +235,8 @@
   .home-hero h1 { font-size: 3.1rem; }
   .portfolio-home .site-header nav { gap: 15px; font-size: .73rem; }
   .project-feature { gap: 28px; }
+  .praxicom-feature { padding: 28px; }
+  .praxicom-intro { gap: 28px; }
   .feature-copy h3 { font-size: 1.65rem; }
   .technical-card { padding: 21px 17px; }
   .technical-section h3 { font-size: 1.17rem; }
@@ -238,6 +246,11 @@
 @media(min-width: 761px) and (max-width: 900px) {
   .hero-layout { grid-template-columns: 1fr; gap: 24px; }
   .hero-intro { max-width: 650px; }
+  .project-feature { grid-template-columns: 1fr; gap: 26px; }
+  .prosody-feature { grid-template-columns: 1fr; grid-template-areas: "visuals" "copy"; gap: 26px; }
+  .prosody-visuals { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
+  .research-to-software { margin-top: 0; }
+  .project-feature > .project-image, .bqe-visuals { width: min(100%, 600px); justify-self: center; }
 }
 @media(max-width: 760px) {
   .portfolio-home .wrap { padding-inline: 22px; }
@@ -256,6 +269,7 @@
   .ribbon-label { font-size: .56rem; }
   .skills-ribbon p { font-size: .75rem; margin: 0; }
   .portfolio-home .section { padding-block: 37px; }
+  .portfolio-home .selected-work { padding-bottom: 37px; }
   .home-section-heading { grid-template-columns: 1fr; gap: 13px; margin-bottom: 24px; }
   .home-section-heading h2 { font-size: 2.2rem; }
   .home-section-heading > p { font-size: .87rem; }

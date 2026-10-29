@@ -1,4 +1,4 @@
-# Robert Leggieri | Applied AI & NLP Development
+# Robert Leggieri | Applied AI & NLP Projects
 
 Personal portfolio for [rjleggieri.github.io](https://rjleggieri.github.io), featuring selected public work and public-safe summaries of graduate projects completed in the M.S. Artificial Intelligence program at The University of Texas at Austin.
 
@@ -21,6 +21,10 @@ The homepage contains the project context and implementation details. The
 text-prosody link opens its report directly; older project URLs redirect to the
 report or the corresponding homepage feature. Remaining pages in `projects/`
 are registered as Vite build inputs. Core content and links remain usable without JavaScript.
+
+The social-sharing image is `public/assets/portfolio-social.jpg`. Its editable
+HTML source is `scripts/social-card.html`; render it at 1200 × 630 pixels when
+updating the image so the shared preview stays consistent with the homepage.
 
 ## Documents
 
