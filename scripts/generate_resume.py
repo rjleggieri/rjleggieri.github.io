@@ -145,6 +145,7 @@ def build_styles():
             leftIndent=11,
             firstLineIndent=-7,
             bulletIndent=0,
+            spaceBefore=2,
             spaceAfter=1,
         )
     )
@@ -234,48 +235,50 @@ def generate():
         bottomMargin=0.48 * inch,
         title="Robert Leggieri - Resume",
         author="Robert Leggieri",
-        subject="Applied NLP, model development, evaluation, and research software",
+        subject="Graduate AI training, AI project experience, and professional business systems experience",
     )
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="main")
     doc.addPageTemplates(PageTemplate(id="resume", frames=[frame], onPage=page_footer))
 
     story = [
         Paragraph("Robert Leggieri", styles["Name"]),
-        Paragraph("APPLIED AI &amp; NLP DEVELOPMENT", styles["Positioning"]),
+        Paragraph("APPLIED AI PROJECT WORK | BUSINESS SYSTEMS EXPERIENCE", styles["Positioning"]),
         Paragraph(
             "Columbia, MD  |  (240) 446-8143  |  "
             + link("mailto:rjleggieri@gmail.com", "rjleggieri@gmail.com")
             + "  |  " + link("https://www.linkedin.com/in/rjleggieri/", "LinkedIn")
             + "  |  " + link("https://github.com/rjleggieri", "GitHub")
             + "  |  " + link("https://rjleggieri.github.io/", "Portfolio"), styles["Contact"]),
-        *section_rule("Professional Summary", styles),
-        Paragraph("M.S. in Artificial Intelligence with project work in transformer training, NLP robustness, and reproducible model evaluation. Develops Python tools that connect data, experiments, and inspectable outputs. Brings more than twenty years of professional technology operations experience; seeking applied NLP and model development roles alongside researchers and software engineers.", styles["Summary"]),
+        *section_rule("Summary", styles),
+        Paragraph("M.S. in Artificial Intelligence with project experience in NLP, model training and evaluation, and AI service integration. More than twenty years managing business technology, automating workflows, and supporting users. Seeking opportunities to contribute to applied AI, NLP, and research software alongside researchers and engineers.", styles["Summary"]),
         *section_rule("Technical Skills", styles),
-        Paragraph("<b>Model development:</b> Python, PyTorch, Hugging Face Transformers, scikit-learn, LoRA / QLoRA", styles["Skills"]),
+        Paragraph("<b>Models / experimentation:</b> Python, PyTorch, Hugging Face Transformers, scikit-learn, LoRA / QLoRA", styles["Skills"]),
         Paragraph("<b>Data / evaluation:</b> NumPy, pandas, SQL / SQLite, grouped evaluation, calibration, pytest, Git", styles["Skills"]),
-        Paragraph("<b>Applications / integration:</b> REST APIs, ETL, React, Node.js, Socket.IO, PowerShell", styles["Skills"]),
-        *section_rule("Selected Projects", styles),
+        Paragraph("<b>Software / integration:</b> REST APIs, ETL, React, Node.js, Socket.IO, PowerShell", styles["Skills"]),
+        *section_rule("Selected AI and Software Projects", styles),
         project("NLP Robustness through Training-Data Analysis", "Graduate NLP project, UT Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Paper"), [
-            "Instrumented DeBERTa training across 392,702 MNLI examples over five epochs; implemented category-weighted cross-entropy with a custom Hugging Face callback, weighted dataset, and Trainer override.",
-            "Selected weighting improved reported HANS accuracy from 77.49% to 78.59% (+1.10 points), alongside MNLI accuracy of 88.91% to 88.47% (-0.44 points); documented selection and uncertainty limits."
+            "Instrumented DeBERTa training on 392,702 MNLI examples across five epochs; implemented a Hugging Face callback, weighted dataset, Trainer override, and category-weighted cross-entropy.",
+            "Measured HANS accuracy of 78.59% versus 77.49% at baseline (+1.10 points), with MNLI accuracy of 88.47% versus 88.91%; analyzed adversarial subcases and generalization trade-offs."
         ], styles),
-        project("Auditable Data Integration for Planning and Reporting", "Professional project, Gutschick, Little &amp; Weber, P.A.  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
-            "Built a read-only BQE CORE connector that normalizes authorized operational and financial data into a validated SQLite warehouse and traceable outputs for an internal planning workflow.",
-            "Implemented OAuth PKCE, permission-aware incremental sync, retries, deduplication, validation, and synthetic demonstrations."
+        project("PraxiCom: Faculty-Directed Voice Simulation", "Academic prototype, UT Austin NURSING-AI Challenge, Spring 2025  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
+            "Built React student/faculty interfaces and a Node.js / Socket.IO relay for Hume EVI voice sessions, with nursing-faculty guidance.",
+            "Added configurable YAML patient personas, a 10-criterion faculty rubric, session monitoring, and local export of transcripts, chat, scores, and notes."
         ], styles),
-        project("Reproducible Text / Speech Model Evaluation", "Public alpha reference software, released July 2026  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
-            "Developed dataset-neutral interfaces for leakage-aware grouping, nested evaluation, calibration, reliability, bootstrap intervals, and evidence provenance.",
-            "Published bounded text-component evidence; explicitly separated audio runtime checks and synthetic pipeline verification from scientific validation."
+        project("Text-Prosody Study and Evaluation Software", "Graduate study and independent software project  |  " + link("https://rjleggieri.github.io/docs/Text-Prosody-Misalignment.pdf", "Report") + "  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
+            "Built alignment, pretrained affect-model inference, and session-feature extraction across 32,401 utterances from 189 interviews; documented measurement and evaluation limitations.",
+            "Extended the study into grouped evaluation, calibration, and provenance software. A public EmoBank text benchmark improved valence RMSE from 0.4276 to 0.3908."
         ], styles),
-        project("PraxiCom: Faculty-Directed Voice Simulation", "Archived spring 2025 academic prototype, UT Austin NURSING-AI Challenge  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
-            "Built React student and faculty interfaces, a Node.js / Socket.IO relay, synthetic personas, and faculty evaluation around Hume EVI, with guidance from nursing faculty."
+        project("BQE CORE Connector: Business Data for Planning", "Professional project, GLW  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
+            "Built a read-only connector for authorized project, time, expense, and billing records; normalized data into SQLite for reporting and planning.",
+            "Implemented OAuth PKCE, permission-aware incremental sync, retries, deduplication, and validation; generated management briefs and traceable AI-context exports."
         ], styles),
         *section_rule("Professional Experience", styles),
         Paragraph("Network Manager - Gutschick, Little &amp; Weber, P.A.", styles["ExperienceTitle"]),
         Paragraph("Burtonsville, MD  |  July 2004 - Present", styles["ExperienceMeta"]),
         *bullets([
-            "Use Python and PowerShell to automate workflows, integrate business systems, and translate requirements into dependable, secure technical solutions.",
-            "Own technology operations, security, vendors, and infrastructure planning for an engineering firm supporting more than 40 users."
+            "Automate workflows with Python and PowerShell; integrate business systems and translate user requirements into practical technical solutions.",
+            "Manage technology operations, security, vendors, and infrastructure planning for an engineering firm supporting more than 40 users.",
+            "Organize and deliver software and AI training; create instructional videos and written guides, and provide demonstrations and one-on-one guidance."
         ], styles),
         *section_rule("Education", styles),
         Paragraph("<b>The University of Texas at Austin</b> - M.S., Artificial Intelligence, GPA 4.0  |  August 2026", styles["Education"]),

@@ -39,7 +39,7 @@ embedded=[image.image.convert('RGB') for page in revised.pages for image in page
 assert any(im.size==original_image.size and im.tobytes()==original_image.tobytes() for im in embedded)
 assert len(resume.pages)==1, 'Resume must remain one page'
 resume_text=normalize(resume.pages[0].extract_text())
-assert 'APPLIEDAI&NLPDEVELOPMENT' in resume_text
+assert 'APPLIEDAIPROJECTWORK|BUSINESSSYSTEMSEXPERIENCE' in resume_text
 assert 'TECHNOLOGYLEADERSHIP' not in resume_text
 assert '80%sensitivity' not in resume_text
 for name in ['Making-DeBERTa-Smarter.pdf','Robert-Leggieri-Resume.pdf']:
