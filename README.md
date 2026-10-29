@@ -17,8 +17,8 @@ pnpm run build
 
 The site is a static Vite build. GitHub Pages can publish the generated `dist` directory through a Pages workflow or the project can be deployed directly from source with a compatible static hosting provider.
 
-The homepage is supported by six case-study pages in `projects/`, registered as
-Vite build inputs. Core content and links remain usable without JavaScript.
+The project pages in `projects/` are registered as Vite build inputs. The former
+evaluation URL redirects to the evaluation section of the unified text–prosody case study. Core content and links remain usable without JavaScript.
 
 ## Documents
 

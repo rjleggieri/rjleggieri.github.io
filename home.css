@@ -80,6 +80,20 @@
 .compact-results { display: flex; flex-wrap: wrap; gap: 17px; padding: 11px 0; margin-bottom: 3px; border-block: 1px solid var(--line); }
 .compact-results span { font-size: .66rem; color: var(--muted); }
 .compact-results strong { color: var(--green); font-size: 1.14rem; margin-right: 4px; }
+.prosody-feature { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; padding-top: 40px; margin-top: 42px; border-top: 1px solid var(--line); align-items: start; }
+.prosody-visuals { min-width: 0; }
+.prosody-visuals .project-image img { width: 100%; height: auto; }
+.research-to-software { padding: 20px; margin-top: 18px; border: 1px solid #ccd6c5; background: #e7ecdf; }
+.research-to-software > span { color: var(--accent); font-size: .63rem; letter-spacing: .09em; font-weight: 750; }
+.research-to-software p { font-size: .84rem; color: var(--green); line-height: 1.8; margin: 9px 0 0; }
+.prosody-copy h3 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 17px; }
+.prosody-copy > p:not(.project-type):not(.project-boundary) { font-size: .9rem; line-height: 1.8; }
+.prosody-results { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding-block: 17px; border-block: 1px solid var(--line); margin: 21px 0; }
+.prosody-results strong { display: block; font-size: 1.65rem; line-height: 1.2; color: var(--green); }
+.prosody-results span { display: block; font-size: .64rem; line-height: 1.7; color: var(--muted); margin-top: 6px; }
+.prosody-followthrough { border-left: 3px solid var(--green); background: #e8eee2; padding: 15px 18px; margin-bottom: 20px; }
+.prosody-followthrough h4 { margin: 0 0 7px; font-size: .92rem; }
+.prosody-followthrough p { font-size: .82rem; line-height: 1.8; margin: 0; }
 .technical-section { padding-block: 65px; background: #193f35; color: #f6f3e9; }
 .technical-section .eyebrow { color: #efb18a; }
 .technical-section h2 em { color: #efb18a; }
@@ -175,6 +189,8 @@
   .project-image figcaption { font-size: .62rem; padding: 9px 11px; }
   .metric-pair strong { font-size: clamp(.97rem, 4.5vw, 1.4rem); }
   .visual-project-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 35px; }
+  .prosody-feature { grid-template-columns: 1fr; gap: 24px; margin-top: 30px; padding-top: 28px; }
+  .prosody-copy h3 { font-size: 1.55rem; }
   .visual-project > .project-image { aspect-ratio: 1.5; }
   .project-copy { padding-top: 19px; }
   .project-copy h3 { font-size: 1.5rem; }
