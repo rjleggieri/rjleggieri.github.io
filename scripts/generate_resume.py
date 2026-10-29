@@ -262,7 +262,7 @@ def generate():
         ], styles),
         project("PraxiCom: Faculty-Directed Voice Simulation", "Academic prototype, UT Austin NURSING-AI Challenge, Spring 2025  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
             "Built React student/faculty interfaces and a Node.js / Socket.IO relay for Hume EVI voice sessions, with nursing-faculty guidance.",
-            "Added configurable YAML patient personas, a 10-criterion faculty rubric, session monitoring, and local export of transcripts, chat, scores, and notes."
+            "Added configurable YAML patient personas, a faculty-defined evaluation rubric, session monitoring, and local export of transcripts, chat, scores, and notes."
         ], styles),
         project("Text-Prosody Study and Evaluation Software", "Graduate study and independent software project  |  " + link("https://rjleggieri.github.io/docs/Text-Prosody-Misalignment.pdf", "Report") + "  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
             "Built alignment, pretrained affect-model inference, and session-feature extraction across 32,401 utterances from 189 interviews; documented measurement and evaluation limitations.",
