@@ -127,7 +127,7 @@
 .compact-results { display: flex; flex-wrap: wrap; gap: 17px; padding: 11px 0; margin-bottom: 3px; border-block: 1px solid var(--line); }
 .compact-results span { font-size: .66rem; color: var(--muted); }
 .compact-results strong { color: var(--green); font-size: 1.14rem; margin-right: 4px; }
-.prosody-feature { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; padding-top: 40px; margin-top: 42px; border-top: 1px solid var(--line); align-items: start; }
+.prosody-feature { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; padding-bottom: 42px; margin-top: 42px; border-bottom: 1px solid var(--line); align-items: start; }
 .prosody-visuals { min-width: 0; }
 .prosody-visuals .project-image img { width: 100%; height: auto; }
 .research-to-software { padding: 20px; margin-top: 18px; border: 1px solid #ccd6c5; background: #e7ecdf; }
@@ -242,7 +242,7 @@
   .project-image figcaption { font-size: .62rem; padding: 9px 11px; }
   .metric-pair strong { font-size: clamp(.97rem, 4.5vw, 1.4rem); }
   .visual-project-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 35px; }
-  .prosody-feature { grid-template-columns: 1fr; gap: 24px; margin-top: 30px; padding-top: 28px; }
+  .prosody-feature { grid-template-columns: 1fr; gap: 24px; margin-top: 30px; padding-bottom: 30px; }
   .prosody-copy h3 { font-size: 1.55rem; }
   .visual-project > .project-image { aspect-ratio: 1.5; }
   .project-copy { padding-top: 19px; }
