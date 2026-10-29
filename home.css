@@ -77,7 +77,21 @@
 .app-secondary { width: 46%; position: absolute; right: 17px; bottom: 50px; }
 .app-secondary img { width: 100%; border: 1px solid #89a094; box-shadow: 0 6px 18px #0d2e2590; }
 .app-image figcaption { color: #e1e8dc; margin-top: auto; border-top-color: #7f9a8b55; background: #244a40; }
-.bqe-feature { margin-top: 42px; }
+.bqe-feature { margin-top: 42px; align-items: start; scroll-margin-top: 95px; }
+.bqe-visuals { min-width: 0; }
+.bqe-output-image { background: #e7ecdf; }
+.bqe-output-image img { width: 100%; height: auto; }
+.bqe-output-image figcaption a { color: inherit; }
+.bqe-data-flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 18px; padding: 16px 14px; border: 1px solid var(--line); color: var(--green); font-size: .68rem; font-weight: 650; }
+.bqe-data-flow b { color: var(--accent); font-weight: 400; }
+.bqe-use-cases { margin: 21px 0; }
+.bqe-use-cases > div { padding: 12px 0; border-top: 1px solid var(--line); }
+.bqe-use-cases h4 { margin: 0 0 5px; font-size: .92rem; }
+.bqe-use-cases p { margin: 0; color: var(--muted); font-size: .81rem; line-height: 1.75; }
+.bqe-engineering { margin: 0 0 19px; padding: 17px 19px; background: #e9eddf; border-left: 3px solid var(--green); }
+.bqe-engineering h4 { margin: 0 0 10px; font-size: .9rem; }
+.bqe-engineering ul { padding-left: 16px; margin: 0; font-size: .75rem; line-height: 1.8; }
+.bqe-engineering li+li { margin-top: 7px; }
 .bqe-feature .implementation { font-size: .82rem!important; color: var(--muted); }
 .praxicom-feature { margin-top: 42px; padding: 38px; background: #173c33; color: #f6f3eb; border: 1px solid #254e40; border-radius: 8px; scroll-margin-top: 95px; }
 .praxicom-intro { display: grid; grid-template-columns: 1.08fr 1fr; gap: 56px; align-items: start; }

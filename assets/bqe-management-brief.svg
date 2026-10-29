@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" role="img" aria-labelledby="title desc">
+<title id="title">BQE connector management brief: synthetic output example</title><desc id="desc">Reformatted from the connector's checked-in synthetic brief. 339 logged hours, 93.8 percent billable hours, 21,700 dollars in estimated unbilled time value. Review items CH-220: 13,300 dollars and NW-100: 8,400 dollars in estimated unbilled time. These are sample values, not GLW company data or measured business outcomes.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#193f35" stroke-opacity=".035"/></pattern></defs>
+<rect width="1200" height="1040" fill="#e7ecdf"/><rect width="1200" height="1040" fill="url(#grid)"/>
+<style>text{font-family:Arial,sans-serif;fill:#193f35}.over{font-size:18px;font-weight:700;letter-spacing:2px}.title{font-size:47px;font-weight:700;letter-spacing:-1px}.label{font-size:26px;font-weight:700}.small{font-size:22px;fill:#58645b}.value{font-size:53px;font-weight:700;letter-spacing:-1px}.white{fill:#f6f3eb}.line{stroke:#d1d8ca;stroke-width:2}</style>
+<rect x="55" y="52" width="1090" height="934" rx="14" fill="#fffdf7" stroke="#ccd4c5"/>
+<path d="M69 52H1131Q1145 52 1145 66V146H55V66Q55 52 69 52Z" fill="#193f35"/><text x="90" y="110" class="over white">SYNTHETIC EXAMPLE / NOT GLW COMPANY DATA</text>
+<text x="90" y="220" class="title">Management brief</text><text x="90" y="264" class="small">Generated from the connector’s synthetic fixtures</text>
+<line x1="90" y1="302" x2="1110" y2="302" class="line"/>
+<text x="90" y="356" class="over" style="fill:#a14c25">WORKLOAD SNAPSHOT</text>
+<text x="90" y="438" class="value">339.0 h</text><text x="90" y="481" class="small">Logged hours</text>
+<line x1="575" y1="382" x2="575" y2="497" class="line"/>
+<text x="640" y="438" class="value">93.8%</text><text x="640" y="481" class="small">Billable share of logged hours</text>
+<rect x="90" y="539" width="1020" height="142" rx="9" fill="#e8eee2"/><text x="120" y="583" class="small">Estimated unbilled time value</text><text x="120" y="647" class="value">$21,700</text><text x="715" y="637" class="small">Planning estimate</text>
+<text x="90" y="741" class="over" style="fill:#a14c25">ITEMS FOR MANAGEMENT REVIEW</text>
+<text x="90" y="796" class="label">CH-220</text><text x="440" y="796" class="small">Estimated unbilled time</text><text x="980" y="796" class="label" text-anchor="end">$13,300</text>
+<line x1="90" y1="819" x2="1110" y2="819" class="line"/>
+<text x="90" y="862" class="label">NW-100</text><text x="440" y="862" class="small">Estimated unbilled time</text><text x="980" y="862" class="label" text-anchor="end">$8,400</text>
+<line x1="90" y1="886" x2="1110" y2="886" class="line"/>
+<text x="90" y="931" class="small" style="font-size:20px">Reconcile financial estimates to BQE reports before business use.</text>
+</svg>
