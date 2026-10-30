@@ -258,7 +258,7 @@ def generate():
         *section_rule("Selected AI and Software Projects", styles),
         project("NLP Robustness through Training-Data Analysis", "Graduate NLP project, UT Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Paper"), [
             "Instrumented DeBERTa training on 392,702 MNLI examples across five epochs; implemented a Hugging Face callback, weighted dataset, Trainer override, and category-weighted cross-entropy.",
-            "Measured HANS accuracy of 78.59% versus 77.49% at baseline (+1.10 points), with MNLI accuracy of 88.47% versus 88.91%; analyzed adversarial subcases and generalization trade-offs."
+            "Improved HANS challenge-set accuracy from 77.49% to 78.59% (+1.10 percentage points) with category-weighted training; analyzed performance across adversarial syntactic subcases."
         ], styles),
         project("PraxiCom: Faculty-Directed Voice Simulation", "Academic prototype, UT Austin NURSING-AI Challenge, Spring 2025  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
             "Built React student/faculty interfaces and a Node.js / Socket.IO relay for Hume EVI voice sessions, with nursing-faculty guidance.",
