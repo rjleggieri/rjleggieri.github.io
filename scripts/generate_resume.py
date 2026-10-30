@@ -250,18 +250,19 @@ def generate():
             + "  |  " + link("https://github.com/rjleggieri", "GitHub")
             + "  |  " + link("https://rjleggieri.github.io/", "Portfolio"), styles["Contact"]),
         *section_rule("Summary", styles),
-        Paragraph("M.S. in Artificial Intelligence with project experience in NLP, model training and evaluation, and AI service integration. More than twenty years managing business technology, automating workflows, and supporting users. Seeking opportunities to contribute to applied AI, NLP, and research software alongside researchers and engineers.", styles["Summary"]),
+        Paragraph("M.S. in Artificial Intelligence with project work in NLP, model evaluation, and AI integration. More than twenty years managing business systems and automating workflows. Seeking applied AI, NLP, and research software opportunities.", styles["Summary"]),
         *section_rule("Technical Skills", styles),
         Paragraph("<b>Models / experimentation:</b> Python, PyTorch, Hugging Face Transformers, scikit-learn, LoRA / QLoRA", styles["Skills"]),
         Paragraph("<b>Data / evaluation:</b> NumPy, pandas, SQL / SQLite, grouped evaluation, calibration, pytest, Git", styles["Skills"]),
         Paragraph("<b>Software / integration:</b> REST APIs, ETL, React, Node.js, Socket.IO, PowerShell", styles["Skills"]),
+        Paragraph("<b>Graduate work:</b> Generated nearly 1M grounded visual QA pairs; built MLP, transformer, and CNN waypoint models in simulation.", styles["Skills"]),
         *section_rule("Selected AI and Software Projects", styles),
         project("NLP Robustness through Training-Data Analysis", "Graduate NLP project, UT Austin  |  " + link("https://rjleggieri.github.io/docs/Making-DeBERTa-Smarter.pdf", "Paper"), [
             "Instrumented DeBERTa training on 392,702 MNLI examples across five epochs; implemented a Hugging Face callback, weighted dataset, Trainer override, and category-weighted cross-entropy.",
             "Improved HANS challenge-set accuracy from 77.49% to 78.59% (+1.10 percentage points); standard MNLI validation remained close to baseline (88.47% versus 88.91%)."
         ], styles),
         project("PraxiCom: Faculty-Directed Voice Simulation", "Academic prototype, UT Austin NURSING-AI Challenge, Spring 2025  |  " + link("https://github.com/rjleggieri/ut-nursing-ai", "GitHub"), [
-            "Built React student/faculty interfaces and a Node.js / Socket.IO relay for Hume EVI voice sessions, with nursing-faculty guidance.",
+            "Individually built the PraxiCom prototype with React interfaces, a Node.js / Socket.IO relay, and Hume EVI voice integration, guided by nursing faculty.",
             "Added configurable YAML patient personas, a faculty-defined evaluation rubric, session monitoring, and local export of transcripts, chat, scores, and notes."
         ], styles),
         project("Text-Prosody Study and Evaluation Software", "Graduate study and independent software project  |  " + link("https://rjleggieri.github.io/docs/Text-Prosody-Misalignment.pdf", "Report") + "  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
