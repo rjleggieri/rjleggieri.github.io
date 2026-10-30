@@ -45,12 +45,12 @@
 .feature-copy > p:not(.project-type):not(.project-boundary) { font-size: .92rem; }
 .implementation-list { padding-left: 18px; margin: 17px 0; color: var(--muted); font-size: .81rem; line-height: 1.7; }
 .implementation-list li+li { margin-top: 3px; }
-.metric-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-block: 15px; margin: 19px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.metric-pair > div { min-width: 0; }
-.metric-pair > div > span { display: block; color: var(--muted); font-size: .65rem; text-transform: uppercase; letter-spacing: .07em; }
-.metric-pair strong { display: block; margin-top: 4px; font-size: clamp(1rem, 1.7vw, 1.45rem); line-height: 1.25; letter-spacing: -.06em; font-weight: 600; white-space: nowrap; }
-.metric-pair strong span { font-size: .7em; }
-.metric-pair small { display: block; margin-top: 4px; font-size: .67rem; color: var(--muted); }
+.nli-result { display: grid; grid-template-columns: 1fr; gap: 18px; padding-block: 15px; margin: 19px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.nli-result > div { min-width: 0; }
+.nli-result > div > span { display: block; color: var(--muted); font-size: .65rem; text-transform: uppercase; letter-spacing: .07em; }
+.nli-result strong { display: block; margin-top: 4px; font-size: clamp(1rem, 1.7vw, 1.45rem); line-height: 1.25; letter-spacing: -.06em; font-weight: 600; white-space: nowrap; }
+.nli-result strong span { font-size: .7em; }
+.nli-result small { display: block; margin-top: 4px; font-size: .67rem; color: var(--muted); }
 .project-boundary { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 13px 0 17px; }
 .text-link { display: inline-flex; align-items: center; gap: 17px; font-size: .8rem; font-weight: 700; text-decoration-thickness: 1px; }
 .report-link { gap: 10px; }
@@ -279,7 +279,7 @@
   .image-topline { font-size: .46rem; gap: 9px; padding: 11px 12px; }
   .nli-image img { width: calc(100% - 16px); margin: 13px 8px; }
   .project-image figcaption { font-size: .62rem; padding: 9px 11px; }
-  .metric-pair strong { font-size: clamp(.97rem, 4.5vw, 1.4rem); }
+  .nli-result strong { font-size: clamp(.97rem, 4.5vw, 1.4rem); }
   .visual-project-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 35px; }
   .prosody-feature { grid-template-columns: 1fr; grid-template-areas: "visuals" "copy"; gap: 24px; margin-top: 30px; padding-bottom: 30px; }
   .prosody-copy h3 { font-size: 1.55rem; }
