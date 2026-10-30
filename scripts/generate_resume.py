@@ -265,8 +265,9 @@ def generate():
             "Added configurable YAML patient personas, a faculty-defined evaluation rubric, session monitoring, and local export of transcripts, chat, scores, and notes."
         ], styles),
         project("Text-Prosody Study and Evaluation Software", "Graduate study and independent software project  |  " + link("https://rjleggieri.github.io/docs/Text-Prosody-Misalignment.pdf", "Report") + "  |  " + link("https://github.com/rjleggieri/text-prosody-evidence", "GitHub"), [
-            "Built alignment, pretrained affect-model inference, and session-feature extraction across 32,401 utterances from 189 interviews; documented measurement and evaluation limitations.",
-            "Extended the study into grouped evaluation, calibration, and provenance software. A public EmoBank text benchmark improved valence RMSE from 0.4276 to 0.3908."
+            "Designed the Alignment Discrepancy Score (ADS) and built a text/audio feature pipeline across 32,401 utterances from 189 interviews for PHQ-8 prediction.",
+            "Sentiment-ADS achieved ROC AUC 0.609 versus 0.486 for the audio-only affect baseline; average precision was 0.410 versus a 0.302 prevalence baseline.",
+            "Extended the study into grouped evaluation, calibration, and provenance software. A separate EmoBank text benchmark improved valence RMSE from 0.4276 to 0.3908."
         ], styles),
         project("BQE CORE Connector: Weekly Workload Planning", "Professional project, GLW  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
             "Built a read-only BQE CORE connector feeding employee and project history into a weekly planning prototype for capacity reviews, overload checks, and waiting-work tracking.",
