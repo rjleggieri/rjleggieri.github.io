@@ -83,7 +83,7 @@
 .bqe-output-image { background: #e7ecdf; }
 .bqe-output-image img { width: 100%; height: auto; }
 .bqe-output-image figcaption a { color: inherit; }
-.bqe-data-flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 18px; padding: 16px 14px; border: 1px solid var(--line); color: var(--green); font-size: .68rem; font-weight: 650; }
+.bqe-data-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1.2fr; align-items: center; gap: 8px; margin-top: 18px; padding: 16px 14px; border: 1px solid var(--line); color: var(--green); font-size: .68rem; font-weight: 650; text-align: center; }
 .bqe-data-flow b { color: var(--accent); font-weight: 400; }
 .bqe-use-cases { margin: 21px 0; }
 .bqe-use-cases > div { padding: 12px 0; border-top: 1px solid var(--line); }
