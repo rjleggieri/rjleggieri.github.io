@@ -45,7 +45,7 @@
 .feature-copy > p:not(.project-type):not(.project-boundary) { font-size: .92rem; }
 .implementation-list { padding-left: 18px; margin: 17px 0; color: var(--muted); font-size: .81rem; line-height: 1.7; }
 .implementation-list li+li { margin-top: 3px; }
-.nli-result { display: grid; grid-template-columns: 1fr; gap: 18px; padding-block: 15px; margin: 19px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.nli-result { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-block: 15px; margin: 19px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .nli-result > div { min-width: 0; }
 .nli-result > div > span { display: block; color: var(--muted); font-size: .65rem; text-transform: uppercase; letter-spacing: .07em; }
 .nli-result strong { display: block; margin-top: 4px; font-size: clamp(1rem, 1.7vw, 1.45rem); line-height: 1.25; letter-spacing: -.06em; font-weight: 600; white-space: nowrap; }
