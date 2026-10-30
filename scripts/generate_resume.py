@@ -268,9 +268,9 @@ def generate():
             "Built alignment, pretrained affect-model inference, and session-feature extraction across 32,401 utterances from 189 interviews; documented measurement and evaluation limitations.",
             "Extended the study into grouped evaluation, calibration, and provenance software. A public EmoBank text benchmark improved valence RMSE from 0.4276 to 0.3908."
         ], styles),
-        project("BQE CORE Connector: Business Data for Planning", "Professional project, GLW  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
-            "Built a read-only connector for authorized project, time, expense, and billing records; normalized data into SQLite for reporting and planning.",
-            "Implemented OAuth PKCE, permission-aware incremental sync, retries, deduplication, and validation; generated management briefs and traceable AI-context exports."
+        project("BQE CORE Connector: Weekly Workload Planning", "Professional project, GLW  |  " + link("https://github.com/rjleggieri/bqe-core-ai-data-connector", "GitHub"), [
+            "Built a read-only BQE CORE connector feeding employee and project history into a weekly planning prototype for capacity reviews, overload checks, and waiting-work tracking.",
+            "Connected BQE reference data with team-entered plans and day estimates; implemented OAuth PKCE, incremental SQLite sync, retries, deduplication, and validation."
         ], styles),
         *section_rule("Professional Experience", styles),
         Paragraph("Network Manager - Gutschick, Little &amp; Weber, P.A.", styles["ExperienceTitle"]),
