@@ -81,7 +81,7 @@
 .project-feature.bqe-feature { border-bottom: 0; padding-bottom: 0; }
 .steep-slope-feature { grid-template-columns: 1fr 1.12fr; grid-template-areas: "copy visual"; margin-top: 42px; padding-top: 42px; padding-bottom: 0; border-top: 1px solid var(--line); border-bottom: 0; }
 .steep-slope-feature > .feature-copy { grid-area: copy; min-width: 0; }
-.steep-slope-image { grid-area: visual; min-width: 0; background: #10191e; }
+.steep-slope-image { grid-area: visual; min-width: 0; background: #f8f6ef; }
 .steep-slope-image > a { display: block; }
 .steep-slope-image figcaption { background: #e7ecdf; }
 .steep-slope-image figcaption a { color: inherit; }
