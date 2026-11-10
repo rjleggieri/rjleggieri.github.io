@@ -242,7 +242,7 @@ def generate():
 
     story = [
         Paragraph("Robert Leggieri", styles["Name"]),
-        Paragraph("APPLIED AI PROJECT WORK | BUSINESS SYSTEMS EXPERIENCE", styles["Positioning"]),
+        Paragraph("APPLIED AI | DATA SCIENCE | TECHNOLOGY LEADERSHIP", styles["Positioning"]),
         Paragraph(
             "Columbia, MD  |  (240) 446-8143  |  "
             + link("mailto:rjleggieri@gmail.com", "rjleggieri@gmail.com")
