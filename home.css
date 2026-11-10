@@ -79,6 +79,12 @@
 .app-image figcaption { color: #e1e8dc; margin-top: auto; border-top-color: #7f9a8b55; background: #244a40; }
 .bqe-feature { margin-top: 42px; align-items: start; }
 .project-feature.bqe-feature { border-bottom: 0; padding-bottom: 0; }
+.steep-slope-feature { grid-template-columns: 1fr 1.12fr; grid-template-areas: "copy visual"; margin-top: 42px; padding-top: 42px; padding-bottom: 0; border-top: 1px solid var(--line); border-bottom: 0; }
+.steep-slope-feature > .feature-copy { grid-area: copy; min-width: 0; }
+.steep-slope-image { grid-area: visual; min-width: 0; background: #10191e; }
+.steep-slope-image > a { display: block; }
+.steep-slope-image figcaption { background: #e7ecdf; }
+.steep-slope-image figcaption a { color: inherit; }
 .bqe-visuals { min-width: 0; }
 .bqe-output-image { background: #e7ecdf; }
 .bqe-output-image img { width: 100%; height: auto; }
@@ -247,6 +253,7 @@
   .hero-layout { grid-template-columns: 1fr; gap: 24px; }
   .hero-intro { max-width: 650px; }
   .project-feature { grid-template-columns: 1fr; gap: 26px; }
+  .steep-slope-feature { grid-template-areas: "visual" "copy"; }
   .prosody-feature { grid-template-columns: 1fr; grid-template-areas: "visuals" "copy"; gap: 26px; }
   .prosody-visuals { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
   .research-to-software { margin-top: 0; }
@@ -274,6 +281,7 @@
   .home-section-heading h2 { font-size: 2.2rem; }
   .home-section-heading > p { font-size: .87rem; }
   .project-feature { grid-template-columns: 1fr; gap: 23px; padding-bottom: 31px; }
+  .steep-slope-feature { grid-template-areas: "visual" "copy"; margin-top: 30px; padding-top: 30px; padding-bottom: 0; }
   .feature-copy h3 { font-size: 1.65rem; }
   .feature-copy > p:not(.project-type):not(.project-boundary) { font-size: .89rem; }
   .image-topline { font-size: .46rem; gap: 9px; padding: 11px 12px; }
